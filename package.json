@@ -4,8 +4,8 @@
   "description": "ReactJS Global Mentoring Program 2020Q3",
   "scripts": {
     "test": "jest",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production npx webpack"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --open --config webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js"
   },
   "author": "Ala Yakushava",
   "license": "ISC",
@@ -44,8 +44,10 @@
     "postcss-loader": "^3.0.0",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
+    "style-loader": "^1.2.1",
     "webpack": "^4.44.0",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.0.9"
   }
 }
