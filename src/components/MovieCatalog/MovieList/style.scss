@@ -1,0 +1,14 @@
+@import "../../../styles/theme";
+
+.MovieList {
+  &_lead {
+    font-size: 24px;
+  }
+
+  &_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    grid-gap: 60px;
+  }
+}

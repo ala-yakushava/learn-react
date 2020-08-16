@@ -1,0 +1,14 @@
+@import "../../styles/theme";
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $darkest-grey;
+  color: $white;
+
+  &_space {
+    height: 10px;
+    background-color: $grey;
+  }
+}

@@ -1,0 +1,30 @@
+@import "../../../styles/theme";
+
+.MovieCardMenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  background-color: $darkest-grey;
+
+  &_close {
+    @include reset-button;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px;
+    color: $white;
+  }
+
+  &_button {
+    @include reset-button;
+    padding: 10px 20px;
+    color: $white;
+    text-align: left;
+    background-color: $darkest-grey;
+  }
+}

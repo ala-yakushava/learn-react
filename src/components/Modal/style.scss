@@ -1,0 +1,31 @@
+@import "../../styles/theme";
+
+.Modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(black, 0.6);
+  overflow-y: auto;
+
+  &_wrapper {
+    position: absolute;
+    left: 50%;
+    width: 680px;
+    margin: 100px 0;
+    padding: 70px 70px 70px 90px;
+    color: $white;
+    background-color: $darkest-grey;
+    transform: translate(-50%);
+  }
+
+  &_close {
+    @include reset-button;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 15px;
+    color: $white;
+  }
+};

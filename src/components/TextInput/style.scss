@@ -1,0 +1,36 @@
+@import "../../styles/theme";
+
+.TextInput {
+  display: flex;
+  flex-direction: column;
+
+  + .TextInput {
+    margin-top: 30px;
+  }
+
+  &_label {
+    margin-bottom: 15px;
+    color: $red;
+    text-transform: uppercase;
+  }
+
+  &_field {
+    width: 100%;
+    padding: 17px 20px;
+    font-size: 20px;
+    color: $white;
+    border-radius: 5px;
+    border: none;
+    background-color: $dark-grey;
+
+    &:read-only {
+      padding: 0;
+      color: $white;
+      background-color: transparent;
+    }
+
+    &::placeholder {
+      color: rgb(155, 152, 152);
+    }
+  }
+}

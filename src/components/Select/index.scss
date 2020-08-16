@@ -1,0 +1,16 @@
+@import "../../styles/theme";
+
+.Select {
+  width: 100%;
+  padding: 16px 8px 14px 16px;
+  font-size: 16px;
+  line-height: 1.2;
+  color: $white;
+  text-transform: uppercase;
+  background-color: $darkest-grey;
+  border: none;
+
+  &:hover, &:focus, &:active {
+    outline: none;
+  }
+}
