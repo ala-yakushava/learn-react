@@ -1,0 +1,66 @@
+@import "../../../styles/theme";
+
+.MovieCard {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  &_picture {
+    display: block;
+    width: 100%;
+    height: 456px;
+    margin-bottom: 20px;
+    background-color: $grey;
+  }
+
+  &_title {
+    margin: 0;
+    margin-bottom: 3px;
+    font-size: 22px;
+    line-height: 1.2;
+    color: $white;
+  }
+
+  &_year {
+    margin-left: auto;
+    padding: 2px 15px;
+    font-size: 16px;
+    line-height: 1.2;
+    color: $white;
+    border: 1px solid $white;
+    border-radius: 5px;
+  }
+
+  &_genre-list {
+    width: 100%;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.2;
+    color: $white;
+  }
+
+  &_menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  &_button {
+    @include reset-button;
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    font-size: 30px;
+    color: $white;
+    border: none;
+    background-color: $darkest-grey;
+    border-radius: 50%;
+    transform: rotate(90deg);
+
+    span {
+      position: relative;
+      top: -8px;
+    }
+  }
+}

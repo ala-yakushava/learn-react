@@ -1,0 +1,31 @@
+@import "../../styles/theme";
+
+.Button {
+  @include reset-button;
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+  border-radius: 5px;
+
+  + .Button {
+    margin-left: 15px;
+  }
+
+  &--primary {
+    padding: 17px 75px;
+    color: $white;
+    background-color: $red;
+  }
+
+  &--secondary {
+    color: $red;
+    border: 2px solid $red;
+    background-color: transparent;
+  }
+
+  &--transparent {
+    color: $red;
+    background-color: rgba($grey, 0.5);
+  }
+}

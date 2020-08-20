@@ -1,0 +1,9 @@
+@import "../../styles/theme";
+
+.Footer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding: 20px;
+  background-color: $dark-grey;
+}

@@ -1,0 +1,11 @@
+@import "../../styles/theme";
+
+.Logo {
+  margin: 0;
+  font-size: 24px;
+  color: $red;
+
+  b {
+    font-weight: 700;
+  }
+}
