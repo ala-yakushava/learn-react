@@ -13,7 +13,7 @@ class FindMovieForm extends React.Component {
     };
   }
 
-  handleInputChange = () => (evt) => {
+  handleInputChange = (evt) => {
     const { target: { name, value } } = evt;
     this.setState({
       [name]: value,
@@ -35,7 +35,7 @@ class FindMovieForm extends React.Component {
           placeholder="What do you want to watch?"
           value={this.state.text}
           required={true}
-          onChange={this.handleInputChange(this.state.text)}
+          onChange={this.handleInputChange}
         />
         <Button type="submit" mode="primary">Search</Button>
       </form>
