@@ -4,7 +4,6 @@ import './style.scss';
 import Logo from '../Logo';
 import Button from '../Button';
 import FindMovieForm from './FindMovieForm';
-import ModalPortal from '../ModalPortal';
 import Modal from '../Modal';
 import AddMovieForm from '../Modal/AddMovieForm';
 
@@ -35,11 +34,9 @@ class Header extends React.Component {
         <Button mode="transparent" onClick={this.handleClick}>Add movie</Button>
         <FindMovieForm className="Header_form"/>
         {this.state.visible &&
-          <ModalPortal>
-            <Modal onClick={this.handleClickCloseButton}>
-              <AddMovieForm />
-            </Modal>
-          </ModalPortal>
+          <Modal onClick={this.handleClickCloseButton}>
+            <AddMovieForm />
+          </Modal>
         }
       </header>
     );

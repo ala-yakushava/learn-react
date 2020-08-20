@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './style.scss';
-import ModalPortal from '../../ModalPortal';
 import Modal from '../../Modal';
 import EditMovieForm from '../../Modal/EditMovieForm';
 import DeleteMovieDialog from '../../Modal/DeleteMovieDialog';
@@ -42,11 +41,9 @@ class MovieCardMenu extends React.Component {
         <button className="MovieCardMenu_button" onClick={this.handleClickOpenModal('deleteMovie')}>Delete</button>
         <button className="MovieCardMenu_button" onClick={this.handleClickOpenModal('editMovie')}>Edit</button>
         {this.state.visible &&
-          <ModalPortal>
-            <Modal onClick={this.handleClickCloseModal}>
-              {this.modalBody[this.state.modalType]}
-            </Modal>
-          </ModalPortal>
+          <Modal onClick={this.handleClickCloseModal}>
+            {this.modalBody[this.state.modalType]}
+          </Modal>
         }
       </div>
     )
