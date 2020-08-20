@@ -30,7 +30,11 @@ class MovieCard extends React.Component {
 
     return (
       <article className="MovieCard">
-        <img className="MovieCard_picture" src={ poster_path } />
+        <img
+          className="MovieCard_picture"
+          src={ poster_path }
+          alt={`Poster for the movie ${title}`}
+        />
         <h2 className="MovieCard_title">{ title }</h2>
         <span className="MovieCard_year">{ release_date }</span>
         <p className="MovieCard_genre-list">
