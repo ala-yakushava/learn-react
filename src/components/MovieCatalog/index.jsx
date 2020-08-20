@@ -34,7 +34,7 @@ class MovieCatalog extends React.Component {
       <>
         <ErrorBoundary>
           <Filter genres={ genres } options={options} />
-          <MovieList movies={ movies } />
+          <MovieList movies={ movies }  genres={ genres } />
         </ErrorBoundary>
       </>
     )

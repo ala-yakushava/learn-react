@@ -6,7 +6,7 @@ import './index.scss';
 const Select = ({ options })=>{
   return (
     <select className='Select'>
-      {options.map(({ value, label }, i) => <option key={i} value={value}>{label}</option>)}
+      {options.map(({ id, value, label }) => <option key={id} value={value}>{label}</option>)}
     </select>
   );
 };
@@ -14,6 +14,7 @@ const Select = ({ options })=>{
 Select.propTypes = {
   options: PropTypes.arrayOf(
       PropTypes.shape({
+      id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
     })

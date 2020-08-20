@@ -56,9 +56,9 @@ class EditMovieForm extends React.Component {
           value={this.props.movieId}
           isReadonly={true}
           label="Movie ID" />
-        {formField.map(({ name, label, placeholder}, i) => (
+        {formField.map(({ id, name, label, placeholder}) => (
           <TextInput
-            key={i}
+            key={id}
             name={name}
             label={label}
             placeholder={placeholder}

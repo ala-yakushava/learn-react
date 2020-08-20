@@ -25,7 +25,8 @@ class MovieCard extends React.Component {
   }
 
   render() {
-    const { id, title, genres, release_date, poster_path } = this.props.movie;
+    const { id, title, release_date, poster_path } = this.props.movie;
+    const genres = this.props.genres.filter(({ id }) => this.props.movie.genres.includes(id));
 
     return (
       <article className="MovieCard">
@@ -33,8 +34,8 @@ class MovieCard extends React.Component {
         <h2 className="MovieCard_title">{ title }</h2>
         <span className="MovieCard_year">{ release_date }</span>
         <p className="MovieCard_genre-list">
-          {genres.map((genre, i) => {
-            return <span className="MovieCard_genre-item" key={ i }>{ genre }</span>
+          {genres.map(({ id, label }, i) => {
+            return <span className="MovieCard_genre-item" key={ id }>{ label }</span>
           })}
         </p>
         <div className="MovieCard_menu">
@@ -58,6 +59,13 @@ MovieCard.propTypes = {
     release_date: PropTypes.number,
     poster_path: PropTypes.string.isRequired,
   }),
+  genres: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default MovieCard;
