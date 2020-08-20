@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-const Modal = ({ children, handleClick }) => {
+const Modal = ({ children, onClick }) => {
   return (
     <div className="Modal">
       <div className="Modal_wrapper">
-        <button type="button" className="Modal_close" onClick={handleClick}>X</button>
+        <button type="button" className="Modal_close" onClick={onClick}>X</button>
         {children}
       </div>
     </div>
@@ -16,11 +16,11 @@ const Modal = ({ children, handleClick }) => {
 
 Modal.propTypes = {
   children: PropTypes.node,
-  handleClick: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 Modal.defaultProps = {
-  handleClick: () => {},
+  onClick: () => {},
 };
 
 export default Modal;

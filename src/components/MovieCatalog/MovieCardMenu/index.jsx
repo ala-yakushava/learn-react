@@ -38,12 +38,12 @@ class MovieCardMenu extends React.Component {
   render() {
     return (
       <div className="MovieCardMenu">
-        <button type="button" className="MovieCardMenu_close" onClick={this.props.handleClickCloseMenu}>X</button>
+        <button type="button" className="MovieCardMenu_close" onClick={this.props.onClickCloseMenu}>X</button>
         <button className="MovieCardMenu_button" onClick={this.handleClickOpenModal('deleteMovie')}>Delete</button>
         <button className="MovieCardMenu_button" onClick={this.handleClickOpenModal('editMovie')}>Edit</button>
         {this.state.visible &&
           <ModalPortal>
-            <Modal handleClick={this.handleClickCloseModal}>
+            <Modal onClick={this.handleClickCloseModal}>
               {this.modalBody[this.state.modalType]}
             </Modal>
           </ModalPortal>
@@ -54,11 +54,11 @@ class MovieCardMenu extends React.Component {
 };
 
 MovieCardMenu.propTypes = {
-  handleClickCloseMenu: PropTypes.func,
+  onClickCloseMenu: PropTypes.func,
 };
 
 MovieCardMenu.defaultProps = {
-  handleClickCloseMenu: () => {},
+ onClickCloseMenu: () => {},
 };
 
 export default MovieCardMenu;

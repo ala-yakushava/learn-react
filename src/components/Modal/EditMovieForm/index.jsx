@@ -64,7 +64,7 @@ class EditMovieForm extends React.Component {
             placeholder={placeholder}
             value={this.state[name]}
             isRequired={true}
-            handleChange={this.handleInputChange(this.state[name])}
+            onChange={this.handleInputChange(this.state[name])}
           />
         ))}
         <ModalFooter>

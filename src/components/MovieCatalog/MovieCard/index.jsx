@@ -42,7 +42,7 @@ class MovieCard extends React.Component {
             <span>...</span>
           </button>
           {this.state.visible &&
-            <MovieCardMenu movieId={id} handleClickCloseMenu={this.handleClickCloseMenu}/>
+            <MovieCardMenu movieId={id} onClickCloseMenu={this.handleClickCloseMenu}/>
           }
         </div>
       </article>

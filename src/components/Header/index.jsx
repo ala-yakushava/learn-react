@@ -32,11 +32,11 @@ class Header extends React.Component {
     return (
       <header className="Header">
         <Logo />
-        <Button mode="transparent" handleClick={this.handleClick}>Add movie</Button>
+        <Button mode="transparent" onClick={this.handleClick}>Add movie</Button>
         <FindMovieForm className="Header_form"/>
         {this.state.visible &&
           <ModalPortal>
-            <Modal handleClick={this.handleClickCloseButton}>
+            <Modal onClick={this.handleClickCloseButton}>
               <AddMovieForm />
             </Modal>
           </ModalPortal>

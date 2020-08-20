@@ -35,7 +35,7 @@ class FindMovieForm extends React.Component {
           placeholder="What do you want to watch?"
           value={this.state.text}
           isRequired={true}
-          handleChange={this.handleInputChange(this.state.text)}
+          onChange={this.handleInputChange(this.state.text)}
         />
         <Button type="submit" mode="primary">Search</Button>
       </form>
