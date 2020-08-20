@@ -59,7 +59,7 @@ class AddMovieForm extends React.Component {
             label={label}
             placeholder={placeholder}
             value={this.state[name]}
-            isRequired={true}
+            required={true}
             onChange={this.handleInputChange(this.state[name])}
           />
         ))}

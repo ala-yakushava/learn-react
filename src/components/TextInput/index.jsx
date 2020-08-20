@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-const TextInput = ({ label, name, value, placeholder, isRequired, isReadonly, onChange }) => {
+const TextInput = ({ label, name, value, placeholder, required, readOnly, onChange }) => {
   return (
     <div className="TextInput">
       {label && <label className="TextInput_label">{label}</label>}
       <input
         name={name}
         className="TextInput_field"
-        required={isRequired}
-        readOnly={isReadonly}
+        required={required}
+        readOnly={readOnly}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
@@ -25,14 +25,14 @@ TextInput.propTypes = {
   name: PropTypes.string,
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  isRequired: PropTypes.bool,
-  isReadonly: PropTypes.bool,
+  required: PropTypes.bool,
+  readOnly: PropTypes.bool,
   onChange: PropTypes.func,
 };
 
 TextInput.defaultProps = {
-  isRequired: false,
-  isReadonly: false,
+  required: false,
+  readOnly: false,
   onChange: () => {},
 };
 

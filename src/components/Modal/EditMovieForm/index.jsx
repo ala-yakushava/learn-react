@@ -54,7 +54,7 @@ class EditMovieForm extends React.Component {
         <Heading>Edit Movie</Heading>
         <TextInput
           value={this.props.movieId}
-          isReadonly={true}
+          readOnly={true}
           label="Movie ID" />
         {formField.map(({ id, name, label, placeholder}) => (
           <TextInput
@@ -63,7 +63,7 @@ class EditMovieForm extends React.Component {
             label={label}
             placeholder={placeholder}
             value={this.state[name]}
-            isRequired={true}
+            required={true}
             onChange={this.handleInputChange(this.state[name])}
           />
         ))}

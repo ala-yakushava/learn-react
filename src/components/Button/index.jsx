@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import './style.scss';
 
-const Button = ({ children, onClick, type, className, mode, isDisabled }) => {
+const Button = ({ children, onClick, type, className, mode, disabled }) => {
   const buttonClass = cn({
     Button: true,
     [`Button--${mode}`]: true,
@@ -12,7 +12,7 @@ const Button = ({ children, onClick, type, className, mode, isDisabled }) => {
   });
 
   return (
-    <button type={type} disabled={isDisabled} className={buttonClass} onClick={onClick}>
+    <button type={type} disabled={disabled} className={buttonClass} onClick={onClick}>
       <span className='Button_text'>
         {children}
       </span>
@@ -26,7 +26,7 @@ Button.propTypes = {
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
   className: PropTypes.string,
   mode: PropTypes.string,
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -34,7 +34,7 @@ Button.defaultProps = {
   type: 'button',
   className: '',
   mode: 'default',
-  isDisabled: false,
+  disabled: false,
 };
 
 export default Button;
