@@ -1,36 +1,38 @@
+import uniqueId from 'lodash/uniqueId';
+
 export const formField = [
   {
-    id: '01',
+    id: uniqueId(),
     name: 'title',
     label: 'Title',
     placeholder: 'Title here',
   },
   {
-    id: '02',
+    id: uniqueId(),
     name: 'release_date',
     label: 'Release date',
     placeholder: 'Select date',
   },
   {
-    id: '03',
+    id: uniqueId(),
     name: 'url',
     label: 'Movie URL',
     placeholder: 'Movie URL here',
   },
   {
-    id: '04',
+    id: uniqueId(),
     name: 'genres',
     label: 'Genre',
     placeholder: 'Select genre',
   },
   {
-    id: '05',
+    id: uniqueId(),
     name: 'overview',
     label: 'Overview',
     placeholder: 'Overview text goes here',
   },
   {
-    id: '06',
+    id: uniqueId(),
     name: 'runtime',
     label: 'Runtime',
     placeholder: 'Runtime text goes here',
@@ -39,27 +41,27 @@ export const formField = [
 
 export const genres = [
   {
-    id: '00',
+    id: uniqueId(),
     label: 'all',
     value: 'all',
   },
   {
-    id: '01',
+    id: uniqueId(),
     label: 'Documentary',
     value: 'documentary',
   },
   {
-    id: '02',
+    id: uniqueId(),
     label: 'Comedy',
     value: 'comedy',
   },
   {
-    id: '03',
+    id: uniqueId(),
     label: 'Horror',
     value: 'horror',
   },
   {
-    id: '04',
+    id: uniqueId(),
     label: 'Crime',
     value: 'crime',
   },
@@ -67,12 +69,12 @@ export const genres = [
 
 export const options = [
   {
-    id: '01',
+    id: uniqueId(),
     label: 'Title',
     value: 'Title',
   },
   {
-    id: '02',
+    id: uniqueId(),
     label: 'Release date',
     value: 'Release date',
   },
@@ -80,42 +82,42 @@ export const options = [
 
 export const movies = [
   {
-    id: '01',
+    id: uniqueId(),
     title: 'Pupl Fiction',
     genres: ['01'],
     release_date: 2004,
     poster_path: './public/img-1.img',
   },
   {
-    id: '02',
+    id: uniqueId(),
     title: 'Pupl Fiction',
     genres: ['02'],
     release_date: 2004,
     poster_path: './public/img-1.img',
   },
   {
-    id: '03',
+    id: uniqueId(),
     title: 'Pupl Fiction',
     genres: ['03'],
     release_date: 2004,
     poster_path: './public/img-1.img',
   },
   {
-    id: '04',
+    id: uniqueId(),
     title: 'Pupl Fiction',
     genres: ['04'],
     release_date: 2004,
     poster_path: './public/img-1.img',
   },
   {
-    id: '05',
+    id: uniqueId(),
     title: 'Pupl Fiction',
     genres:  ['04'],
     release_date: 2004,
     poster_path: './public/img-1.img',
   },
   {
-    id: '06',
+    id: uniqueId(),
     title: 'Pupl Fiction',
     genres:  ['04'],
     release_date: 2004,
