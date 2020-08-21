@@ -71,12 +71,12 @@ export const options = [
   {
     id: uniqueId(),
     label: 'Title',
-    value: 'Title',
+    value: 'title',
   },
   {
     id: uniqueId(),
     label: 'Release date',
-    value: 'Release date',
+    value: 'release date',
   },
 ];
 
