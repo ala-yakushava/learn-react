@@ -41,27 +41,27 @@ export const formField = [
 
 export const genres = [
   {
-    id: uniqueId(),
+    id: '00',
     label: 'all',
     value: 'all',
   },
   {
-    id: uniqueId(),
+    id: '01',
     label: 'Documentary',
     value: 'documentary',
   },
   {
-    id: uniqueId(),
+    id: '02',
     label: 'Comedy',
     value: 'comedy',
   },
   {
-    id: uniqueId(),
+    id: '03',
     label: 'Horror',
     value: 'horror',
   },
   {
-    id: uniqueId(),
+    id: '04',
     label: 'Crime',
     value: 'crime',
   },
