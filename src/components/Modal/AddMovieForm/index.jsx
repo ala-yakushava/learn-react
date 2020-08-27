@@ -52,15 +52,15 @@ class AddMovieForm extends React.Component {
         onReset={this.handleReset}
       >
         <Heading>Add Movie</Heading>
-        {formField.map(({ name, label, placeholder}, i) => (
+        {formField.map(({ id, name, label, placeholder}) => (
           <TextInput
-            key={i}
+            key={id}
             name={name}
             label={label}
             placeholder={placeholder}
             value={this.state[name]}
-            isRequired={true}
-            handleChange={this.handleInputChange(this.state[name])}
+            required={true}
+            onChange={this.handleInputChange(this.state[name])}
           />
         ))}
         <ModalFooter>

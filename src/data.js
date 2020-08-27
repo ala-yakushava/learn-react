@@ -1,30 +1,38 @@
+import uniqueId from 'lodash/uniqueId';
+
 export const formField = [
   {
+    id: uniqueId(),
     name: 'title',
     label: 'Title',
     placeholder: 'Title here',
   },
   {
+    id: uniqueId(),
     name: 'release_date',
     label: 'Release date',
     placeholder: 'Select date',
   },
   {
+    id: uniqueId(),
     name: 'url',
     label: 'Movie URL',
     placeholder: 'Movie URL here',
   },
   {
+    id: uniqueId(),
     name: 'genres',
     label: 'Genre',
     placeholder: 'Select genre',
   },
   {
+    id: uniqueId(),
     name: 'overview',
     label: 'Overview',
     placeholder: 'Overview text goes here',
   },
   {
+    id: uniqueId(),
     name: 'runtime',
     label: 'Runtime',
     placeholder: 'Runtime text goes here',
@@ -33,84 +41,86 @@ export const formField = [
 
 export const genres = [
   {
-    id: "00",
-    label: "all",
-    value: "all",
+    id: '00',
+    label: 'all',
+    value: 'all',
   },
   {
-    id: "01",
-    label: "documentary",
-    value: "documentary",
+    id: '01',
+    label: 'Documentary',
+    value: 'documentary',
   },
   {
-    id: "02",
-    label: "comedy",
-    value: "comedy",
+    id: '02',
+    label: 'Comedy',
+    value: 'comedy',
   },
   {
-    id: "03",
-    label: "horror",
-    value: "horror",
+    id: '03',
+    label: 'Horror',
+    value: 'horror',
   },
   {
-    id: "04",
-    label: "crime",
-    value: "crime",
+    id: '04',
+    label: 'Crime',
+    value: 'crime',
   },
 ];
 
 export const options = [
   {
+    id: uniqueId(),
     label: 'Title',
-    value: 'Title',
+    value: 'title',
   },
   {
+    id: uniqueId(),
     label: 'Release date',
-    value: 'Release date',
+    value: 'release date',
   },
 ];
 
 export const movies = [
   {
-    id: "01",
-    title: "Pupl Fiction",
-    genres: ['Action & Adventure'],
+    id: uniqueId(),
+    title: 'Pupl Fiction',
+    genres: ['01'],
     release_date: 2004,
-    poster_path: "./public/img-1.img",
+    poster_path: './public/img-1.img',
   },
   {
-    id: "02",
-    title: "Pupl Fiction",
-    genres: ['Action & Adventure'],
+    id: uniqueId(),
+    title: 'Pupl Fiction',
+    genres: ['02'],
     release_date: 2004,
-    poster_path: "./public/img-1.img",
+    poster_path: './public/img-1.img',
   },
   {
-    id: "03",
-    title: "Pupl Fiction",
-    genres: ['Action & Adventure'],
+    id: uniqueId(),
+    title: 'Pupl Fiction',
+    genres: ['03'],
     release_date: 2004,
-    poster_path: "./public/img-1.img",
+    poster_path: './public/img-1.img',
   },
   {
-    id: "04",
-    title: "Pupl Fiction",
-    genres: ['Action & Adventure'],
+    id: uniqueId(),
+    title: 'Pupl Fiction',
+    genres: ['04'],
     release_date: 2004,
-    poster_path: "./public/img-1.img",
+    poster_path: './public/img-1.img',
   },
   {
-    id: "05",
-    title: "Pupl Fiction",
-    genres: ['Action & Adventure'],
+    id: uniqueId(),
+    title: 'Pupl Fiction',
+    genres:  ['04'],
     release_date: 2004,
-    poster_path: "./public/img-1.img",
+    poster_path: './public/img-1.img',
   },
   {
-    id: "06",
-    title: "Pupl Fiction",
-    genres: ['Action & Adventure'],
+    id: uniqueId(),
+    title: 'Pupl Fiction',
+    genres:  ['04'],
     release_date: 2004,
-    poster_path: "./public/img-1.img",
+    poster_path: './public/img-1.img',
   },
 ];

@@ -1,44 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ErrorBoundary from '../ErrorBoundary';
 import Filter from './Filter';
 import MovieList from './MovieList';
-import { genres, options, movies } from '../../data.js';
 
-class MovieCatalog extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      genres: [],
-      options: [],
-      movies: [],
-    };
-  }
+const MovieCatalog = ({ genres, movies, options }) => {
+  return (
+    <>
+      <ErrorBoundary>
+        <Filter genres={ genres } options={options} />
+        <MovieList movies={ movies }  genres={ genres } />
+      </ErrorBoundary>
+    </>
+  )
+};
 
-  componentDidMount() {
-    this.setState({
-      genres,
-      options,
-      movies,
-    });
-  }
-
-  componentWillUnmount() {
-    console.log('Компонент будет размонтирован');
-  }
-
-  render() {
-    const { genres, options, movies } = this.state;
-
-    return (
-      <>
-        <ErrorBoundary>
-          <Filter genres={ genres } options={options} />
-          <MovieList movies={ movies } />
-        </ErrorBoundary>
-      </>
-    )
-  }
+MovieList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object),
+  genres: PropTypes.arrayOf(PropTypes.object),
+  options: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default MovieCatalog;

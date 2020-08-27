@@ -16,7 +16,7 @@ const DeleteMovieDialog = ({ movieId }) => {
       <Heading>Delete Movie</Heading>
       <p>Are you sure you want to delete this movie?</p>
       <ModalFooter>
-        <Button mode="primary" handleClick={handleClick}>Confirm</Button>
+        <Button mode="primary" onClick={handleClick}>Confirm</Button>
       </ModalFooter>
     </div>
   );
