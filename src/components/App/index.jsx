@@ -6,19 +6,17 @@ import Header from '../Header';
 import VisibleMovieCatalog from '../../containers/VisibleMovieCatalog';
 import Footer from '../Footer';
 
-const App = () => {
-  return (
-    <div className="App">
-      <Container>
-        <Header />
-      </Container>
-      <div className="App_space"></div>
-      <Container>
-        <VisibleMovieCatalog />
-      </Container>
-      <Footer />
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <Container>
+      <Header />
+    </Container>
+    <div className="App_space" />
+    <Container>
+      <VisibleMovieCatalog />
+    </Container>
+    <Footer />
+  </div>
+);
 
 export default App;

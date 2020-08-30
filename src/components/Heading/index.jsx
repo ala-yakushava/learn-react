@@ -15,11 +15,16 @@ const Heading = ({ children, className }) => {
       { children }
     </div>
   );
-}
+};
 
 Heading.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+};
+
+Heading.defaultProps = {
+  children: null,
+  className: '',
 };
 
 export default Heading;

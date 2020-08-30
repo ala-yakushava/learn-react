@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-const ModalFooter = ({ children }) => {
-  return (
-    <div className="ModalFooter">
-      { children }
-    </div>
-  );
-}
+const ModalFooter = ({ children }) => (
+  <div className="ModalFooter">
+    { children }
+  </div>
+);
 
 ModalFooter.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
 export default ModalFooter;

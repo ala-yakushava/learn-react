@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './style.scss';
 import Heading from '../../Heading';
@@ -7,69 +7,63 @@ import ModalFooter from '../ModalFooter';
 import Button from '../../Button';
 import { formField } from '../../../data';
 
-class AddMovieForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: '',
-      release_date: '',
-      url: '',
-      genres: '',
-      overview: '',
-      runtime: '',
-    };
-  }
+const AddMovieForm = () => {
+  const [form, setValue] = useState({
+    title: '',
+    release_date: '',
+    url: '',
+    genres: '',
+    overview: '',
+    runtime: '',
+  });
 
-  handleInputChange = () => (evt) => {
-    const { target: { name, value } } = evt;
+  const handleInputChange = () => (evt) => {
+    const { name, value } = evt.target;
+    setValue({ ...form, [name]: value });
+  };
 
-    this.setState({
-      [name]: value,
-    });
-  }
-
-  handleSubmit = (evt) => {
-    console.log(this.state);
+  const handleSubmit = (evt) => {
+    console.log(form);
     evt.preventDefault();
-  }
+  };
 
-  handleReset = () => {
-    this.setState({
+  const handleReset = () => {
+    setValue({
       title: '',
       release_date: '',
       url: '',
       genres: '',
       overview: '',
       runtime: '',
-    })
-  }
+    });
+  };
 
-  render() {
-    return (
-      <form
-        className="AddMovieForm"
-        onSubmit={this.handleSubmit}
-        onReset={this.handleReset}
-      >
-        <Heading>Add Movie</Heading>
-        {formField.map(({ id, name, label, placeholder}) => (
-          <TextInput
-            key={id}
-            name={name}
-            label={label}
-            placeholder={placeholder}
-            value={this.state[name]}
-            required={true}
-            onChange={this.handleInputChange(this.state[name])}
-          />
-        ))}
-        <ModalFooter>
-          <Button type="reset" mode="secondary">Reset</Button>
-          <Button type="submit" mode="primary">Submit</Button>
-        </ModalFooter>
-      </form>
-    );
-  }
-}
+  return (
+    <form
+      className="AddMovieForm"
+      onSubmit={handleSubmit}
+      onReset={handleReset}
+    >
+      <Heading>Add Movie</Heading>
+      {formField.map(({
+        id, name, label, placeholder,
+      }) => (
+        <TextInput
+          key={id}
+          name={name}
+          label={label}
+          placeholder={placeholder}
+          value={form[name]}
+          required
+          onChange={handleInputChange(form[name])}
+        />
+      ))}
+      <ModalFooter>
+        <Button type="reset" mode="secondary">Reset</Button>
+        <Button type="submit" mode="primary">Submit</Button>
+      </ModalFooter>
+    </form>
+  );
+};
 
 export default AddMovieForm;
