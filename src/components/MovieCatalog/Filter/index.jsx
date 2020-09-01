@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 
 import './style.scss';
@@ -8,15 +8,21 @@ const Filter = ({ genres, options }) => {
   const [filter, setFilter] = useState('all');
   const [sort, setSort] = useState('release date');
 
-  const handleChange = (evt) => {
-    setSort(evt.target.value);
-    console.log(evt.target.value);
-  };
+  const handleChange = useCallback(
+    (evt) => {
+      setSort(evt.target.value);
+      console.log(evt.target.value);
+    },
+    [sort],
+  );
 
-  const handleClick = (value) => () => {
-    setFilter(value);
-    console.log(value);
-  };
+  const handleClick = useCallback(
+    (value) => () => {
+      setFilter(value);
+      console.log(value);
+    },
+    [filter],
+  );
 
   const cn = (value) => {
     const isActive = filter === value;
