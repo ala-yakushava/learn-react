@@ -1,34 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import MovieCatalog from '../../components/MovieCatalog';
-import { genres, options, movies } from '../../data.js';
+import * as data from '../../data';
 
-class VisibleMovieCatalog extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      genres: [],
-      options: [],
-      movies: [],
-    };
-  }
+const VisibleMovieCatalog = () => {
+  const [genres, setGenres] = useState([]);
+  const [options, setOptions] = useState([]);
+  const [movies, setMovies] = useState([]);
 
-  componentDidMount() {
-    this.setState({
-      genres,
-      options,
-      movies,
-    });
-  }
+  useEffect(() => {
+    setGenres(data.genres);
+  }, []);
 
-  componentWillUnmount() {
-    console.log('Компонент будет размонтирован');
-  }
+  useEffect(() => {
+    setOptions(data.options);
+  }, []);
 
-  render() {
-    const { genres, options, movies } = this.state;
-    return <MovieCatalog genres={genres} options={options} movies={movies} />
-  }
+  useEffect(() => {
+    setMovies(data.movies);
+  }, []);
+
+  return <MovieCatalog genres={genres} options={options} movies={movies} />;
 };
 
 export default VisibleMovieCatalog;

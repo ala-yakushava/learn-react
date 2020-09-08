@@ -9,7 +9,7 @@ import Button from '../../Button';
 const DeleteMovieDialog = ({ movieId }) => {
   const handleClick = () => {
     console.log(movieId);
-  }
+  };
 
   return (
     <div className="DeleteMovieDialog">
@@ -20,7 +20,7 @@ const DeleteMovieDialog = ({ movieId }) => {
       </ModalFooter>
     </div>
   );
-}
+};
 
 DeleteMovieDialog.propTypes = {
   movieId: PropTypes.string.isRequired,

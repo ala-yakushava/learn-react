@@ -3,27 +3,26 @@ import PropTypes from 'prop-types';
 
 import './index.scss';
 
-const Select = ({ options, value, onChange })=>{
-  return (
-    <select className='Select' value={value} onChange={onChange}>
-      {options.map(({ id, value, label }) => <option key={id} value={value}>{label}</option>)}
-    </select>
-  );
-};
+const Select = ({ options, value, onChange }) => (
+  <select className="Select" value={value} onChange={onChange}>
+    {options.map((option) => <option key={option.id} value={option.value}>{option.label}</option>)}
+  </select>
+);
 
 Select.propTypes = {
   options: PropTypes.arrayOf(
-      PropTypes.shape({
+    PropTypes.shape({
       id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
-    })
+    }),
   ),
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func,
 };
 
 Select.defaultProps = {
+  options: [],
   onChange: () => {},
 };
 

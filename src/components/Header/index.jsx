@@ -1,46 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './style.scss';
 import Logo from '../Logo';
 import Button from '../Button';
-import FindMovieForm from './FindMovieForm';
-import Modal from '../Modal';
-import AddMovieForm from '../Modal/AddMovieForm';
+import MovieDetailsVisible from '../../containers/VisibleMovieDetails';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false,
-    };
-  }
+const Header = ({ onClick }) => (
+  <header className="Header">
+    <Logo />
+    <Button mode="transparent" onClick={onClick}>Search</Button>
+    <div className="Header_inner">
+      <MovieDetailsVisible />
+    </div>
+  </header>
+);
 
-  handleClick = () => {
-    this.setState(state => ({
-      visible: true,
-    }));
-  }
+Header.propTypes = {
+  onClick: PropTypes.func,
+};
 
-  handleClickCloseButton = () => {
-    this.setState(state => ({
-      visible: false,
-    }));
-  }
-
-  render() {
-    return (
-      <header className="Header">
-        <Logo />
-        <Button mode="transparent" onClick={this.handleClick}>Add movie</Button>
-        <FindMovieForm className="Header_form"/>
-        {this.state.visible &&
-          <Modal onClick={this.handleClickCloseButton}>
-            <AddMovieForm />
-          </Modal>
-        }
-      </header>
-    );
-  }
+Header.defaultProps = {
+  onClick: () => {},
 };
 
 export default Header;

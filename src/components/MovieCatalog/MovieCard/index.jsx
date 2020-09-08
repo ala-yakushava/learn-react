@@ -1,59 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './style.scss';
 import MovieCardMenu from '../MovieCardMenu';
 
-class MovieCard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false,
-    };
-  }
+const MovieCard = ({ movie, genres }) => {
+  const [visible, setVisible] = useState(false);
 
-  handleClickOpenMenu = () => {
-    this.setState(state => ({
-      visible: true,
-    }));
-  }
+  const handleClickOpenMenu = () => setVisible(true);
+  const handleClickCloseMenu = () => setVisible(false);
 
-  handleClickCloseMenu = () => {
-    this.setState(state => ({
-      visible: false,
-    }));
-  }
+  const {
+    id, title, release_date: date, poster_path: poster,
+  } = movie;
+  const currentGenres = genres.filter((genre) => movie.genres.includes(genre.id));
 
-  render() {
-    const { id, title, release_date, poster_path } = this.props.movie;
-    const genres = this.props.genres.filter(({ id }) => this.props.movie.genres.includes(id));
-
-    return (
-      <article className="MovieCard">
-        <img
-          className="MovieCard_picture"
-          src={ poster_path }
-          alt={`Poster for the movie ${title}`}
-        />
-        <h2 className="MovieCard_title">{ title }</h2>
-        <span className="MovieCard_year">{ release_date }</span>
-        <p className="MovieCard_genre-list">
-          {genres.map(({ id, label }, i) => {
-            return <span className="MovieCard_genre-item" key={ id }>{ label }</span>
-          })}
-        </p>
-        <div className="MovieCard_menu">
-          <button type="button" className="MovieCard_button" onClick={this.handleClickOpenMenu}>
-            <span>...</span>
-          </button>
-          {this.state.visible &&
-            <MovieCardMenu movieId={id} onClickCloseMenu={this.handleClickCloseMenu}/>
-          }
-        </div>
-      </article>
-    );
-  }
-}
+  return (
+    <article className="MovieCard">
+      <img
+        className="MovieCard_picture"
+        src={poster}
+        alt={`Poster for the movie ${title}`}
+      />
+      <h2 className="MovieCard_title">{ title }</h2>
+      <span className="MovieCard_year">{ date }</span>
+      <p className="MovieCard_genre-list">
+        {currentGenres.map((genre) => <span className="MovieCard_genre-item" key={genre.id}>{ genre.label }</span>)}
+      </p>
+      <div className="MovieCard_menu">
+        <button type="button" className="MovieCard_button" onClick={handleClickOpenMenu}>
+          <span>...</span>
+        </button>
+        {visible && (
+          <MovieCardMenu movieId={id} onClickCloseMenu={handleClickCloseMenu} />
+        )}
+      </div>
+    </article>
+  );
+};
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
@@ -68,8 +52,13 @@ MovieCard.propTypes = {
       id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
-    })
+    }),
   ),
+};
+
+MovieCard.defaultProps = {
+  movie: {},
+  genres: [],
 };
 
 export default MovieCard;

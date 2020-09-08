@@ -1,0 +1,61 @@
+@import "../../../styles/theme";
+
+.MovieDetails {
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  &_picture {
+    min-width: 350px;
+    height: 500px;
+    margin-right: 50px;
+    background-color: $grey;
+  }
+
+  &_inner {
+    padding-top: 40px;
+  }
+
+  &_header {
+    display: flex;
+  }
+
+  &_title {
+    margin-bottom: 10px;
+  }
+
+  &_vote {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    font-size: 24px;
+    line-height: 1;
+    color: greenyellow;
+    border: 1px solid $white;
+    border-radius: 50%;
+  }
+
+  &_lead {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  &_description {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  &_details {
+    font-size: 24px;
+    line-height: 1.2;
+    color: $red;
+
+    span {
+      margin-right: 20px;
+    }
+  }
+}
