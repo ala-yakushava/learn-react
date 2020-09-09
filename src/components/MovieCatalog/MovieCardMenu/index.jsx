@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 import Modal from '../../Modal';
-import EditMovieForm from '../../Modal/EditMovieForm';
+import VisibleMovieForm from '../../../containers/VisibleMovie';
 import DeleteMovieDialog from '../../Modal/DeleteMovieDialog';
 
 const MovieCardMenu = ({ movieId, onClickCloseMenu }) => {
@@ -18,7 +18,7 @@ const MovieCardMenu = ({ movieId, onClickCloseMenu }) => {
   };
 
   const modalBody = {
-    editMovie: <EditMovieForm movieId={movieId} />,
+    editMovie: <VisibleMovieForm movieId={movieId} />,
     deleteMovie: <DeleteMovieDialog movieId={movieId} />,
   };
 
@@ -37,7 +37,7 @@ const MovieCardMenu = ({ movieId, onClickCloseMenu }) => {
 };
 
 MovieCardMenu.propTypes = {
-  movieId: PropTypes.string.isRequired,
+  movieId: PropTypes.number.isRequired,
   onClickCloseMenu: PropTypes.func,
 };
 

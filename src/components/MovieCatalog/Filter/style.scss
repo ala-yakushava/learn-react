@@ -2,14 +2,7 @@
 
 .Filter {
   display: flex;
-  justify-content: space-between;
-  padding: 15px 0 0;
-  border-bottom: 3px solid $grey;
-
-  &_list {
-    display: flex;
-    align-items: center;
-  }
+  align-items: center;
 
   &_item {
     @include reset-button;
@@ -33,20 +26,5 @@
         background-color: $red;
       }
     }
-  }
-
-  &_select {
-    display: flex;
-    width: 300px;
-  }
-
-  &_label {
-    display: flex;
-    align-items: center;
-    width: 150px;
-    font-size: 18px;
-    line-height: 1.2;
-    color: rgb(209, 203, 203);
-    text-transform: uppercase;
   }
 }

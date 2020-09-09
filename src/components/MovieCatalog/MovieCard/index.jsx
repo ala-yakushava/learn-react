@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
 import './style.scss';
 import MovieCardMenu from '../MovieCardMenu';
+import { setCurrentMovieId } from '../../../slices/moviesInfo';
 
-const MovieCard = ({ movie, genres }) => {
+const MovieCard = ({ movie }) => {
   const [visible, setVisible] = useState(false);
+  const dispatch = useDispatch();
 
+  const {
+    id, title, release_date: date, poster_path: poster, genres,
+  } = movie;
+
+  const handleClick = () => dispatch(setCurrentMovieId({ id }));
   const handleClickOpenMenu = () => setVisible(true);
   const handleClickCloseMenu = () => setVisible(false);
 
-  const {
-    id, title, release_date: date, poster_path: poster,
-  } = movie;
-  const currentGenres = genres.filter((genre) => movie.genres.includes(genre.id));
-
   return (
-    <article className="MovieCard">
+    // eslint-disable-next-line
+    <article className="MovieCard" onClick={handleClick}>
       <img
         className="MovieCard_picture"
         src={poster}
@@ -24,9 +28,7 @@ const MovieCard = ({ movie, genres }) => {
       />
       <h2 className="MovieCard_title">{ title }</h2>
       <span className="MovieCard_year">{ date }</span>
-      <p className="MovieCard_genre-list">
-        {currentGenres.map((genre) => <span className="MovieCard_genre-item" key={genre.id}>{ genre.label }</span>)}
-      </p>
+      <p className="MovieCard_genre-list">{ genres.join(', ') }</p>
       <div className="MovieCard_menu">
         <button type="button" className="MovieCard_button" onClick={handleClickOpenMenu}>
           <span>...</span>
@@ -41,24 +43,16 @@ const MovieCard = ({ movie, genres }) => {
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     genres: PropTypes.arrayOf(PropTypes.string),
-    release_date: PropTypes.number,
+    release_date: PropTypes.string,
     poster_path: PropTypes.string.isRequired,
   }),
-  genres: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }),
-  ),
 };
 
 MovieCard.defaultProps = {
   movie: {},
-  genres: [],
 };
 
 export default MovieCard;

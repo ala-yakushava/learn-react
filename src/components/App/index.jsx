@@ -3,7 +3,7 @@ import React from 'react';
 import './style.scss';
 import Container from '../Container';
 import Header from '../Header';
-import VisibleMovieCatalog from '../../containers/VisibleMovieCatalog';
+import MovieCtalog from '../MovieCatalog';
 import Footer from '../Footer';
 
 const App = () => (
@@ -13,7 +13,7 @@ const App = () => (
     </Container>
     <div className="App_space" />
     <Container>
-      <VisibleMovieCatalog />
+      <MovieCtalog />
     </Container>
     <Footer />
   </div>

@@ -1,0 +1,12 @@
+@import "../../styles/theme";
+
+.MovieCatalog {
+  padding-bottom: 80px;
+
+  &_filter {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0 0;
+    border-bottom: 3px solid $grey;
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import './style.scss';
 import Heading from '../../Heading';
@@ -6,36 +7,38 @@ import TextInput from '../../TextInput';
 import ModalFooter from '../ModalFooter';
 import Button from '../../Button';
 import { formField } from '../../../data';
+import { addMovie } from '../../../slices/moviesInfo';
 
 const AddMovieForm = () => {
-  const [form, setValue] = useState({
+  const defaultState = {
     title: '',
     release_date: '',
-    url: '',
+    poster_path: '',
     genres: '',
     overview: '',
     runtime: '',
-  });
+  };
+
+  const dispatch = useDispatch();
+
+  const [form, setValue] = useState(defaultState);
+
+  const handleReset = () => setValue(defaultState);
+
+  const handleSubmit = (evt) => {
+    const data = {
+      ...form,
+      runtime: Number(form.runtime),
+      genres: form.genres.split(', '),
+    };
+
+    evt.preventDefault();
+    dispatch(addMovie({ data }));
+  };
 
   const handleInputChange = () => (evt) => {
     const { name, value } = evt.target;
     setValue({ ...form, [name]: value });
-  };
-
-  const handleSubmit = (evt) => {
-    console.log(form);
-    evt.preventDefault();
-  };
-
-  const handleReset = () => {
-    setValue({
-      title: '',
-      release_date: '',
-      url: '',
-      genres: '',
-      overview: '',
-      runtime: '',
-    });
   };
 
   return (

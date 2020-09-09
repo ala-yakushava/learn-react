@@ -8,35 +8,35 @@ import ModalFooter from '../ModalFooter';
 import Button from '../../Button';
 import { formField } from '../../../data';
 
-const EditMovieForm = ({ movieId }) => {
-  const [form, setValue] = useState({
-    title: '',
-    release_date: '',
-    url: '',
-    genres: '',
-    overview: '',
-    runtime: '',
-  });
+const EditMovieForm = ({ movie, onSubmit }) => {
+  const defaultState = {
+    title: movie.title,
+    release_date: movie.release_date,
+    poster_path: movie.poster_path,
+    genres: movie.genres.join(', '),
+    overview: movie.overview,
+    runtime: String(movie.runtime),
+  };
+
+  const [form, setValue] = useState(defaultState);
+
+  const handleReset = () => setValue(defaultState);
+
+  const handleSubmit = (evt) => {
+    const data = {
+      ...form,
+      id: movie.id,
+      runtime: Number(form.runtime),
+      genres: form.genres.split(', '),
+    };
+
+    evt.preventDefault();
+    onSubmit(data);
+  };
 
   const handleInputChange = () => (evt) => {
     const { name, value } = evt.target;
     setValue({ ...form, [name]: value });
-  };
-
-  const handleSubmit = (evt) => {
-    console.log(form);
-    evt.preventDefault();
-  };
-
-  const handleReset = () => {
-    setValue({
-      title: '',
-      release_date: '',
-      url: '',
-      genres: '',
-      overview: '',
-      runtime: '',
-    });
   };
 
   return (
@@ -47,7 +47,7 @@ const EditMovieForm = ({ movieId }) => {
     >
       <Heading>Edit Movie</Heading>
       <TextInput
-        value={movieId}
+        value={String(movie.id)}
         readOnly
         label="Movie ID"
       />
@@ -73,7 +73,16 @@ const EditMovieForm = ({ movieId }) => {
 };
 
 EditMovieForm.propTypes = {
-  movieId: PropTypes.string.isRequired,
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.string),
+    release_date: PropTypes.string,
+    poster_path: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    runtime: PropTypes.number.isRequired,
+  }).isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default EditMovieForm;

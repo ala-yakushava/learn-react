@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
 import './style.scss';
 import Heading from '../../Heading';
 import ModalFooter from '../ModalFooter';
 import Button from '../../Button';
+import { removeMovie } from '../../../slices/moviesInfo';
 
 const DeleteMovieDialog = ({ movieId }) => {
+  const dispatch = useDispatch();
+
   const handleClick = () => {
-    console.log(movieId);
+    dispatch(removeMovie(movieId));
   };
 
   return (
@@ -23,7 +27,7 @@ const DeleteMovieDialog = ({ movieId }) => {
 };
 
 DeleteMovieDialog.propTypes = {
-  movieId: PropTypes.string.isRequired,
+  movieId: PropTypes.number.isRequired,
 };
 
 export default DeleteMovieDialog;

@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import MovieDetails from '../../components/Header/MovieDetails';
-import * as data from '../../data';
+import { currentMovieIdSelector } from '../../slices/moviesInfo';
+import { fetchMovie, movieSelector } from '../../slices/movieInfo';
 
 const VisibleMovieDetails = () => {
-  const [movie, setMovie] = useState({});
+  const dispatch = useDispatch();
+
+  const id = useSelector(currentMovieIdSelector);
+  const { movie } = useSelector(movieSelector);
 
   useEffect(() => {
-    setMovie(data.movie);
-  }, []);
+    dispatch(fetchMovie(id));
+  }, [dispatch, id]);
 
   return <MovieDetails movie={movie} />;
 };
