@@ -20,10 +20,7 @@ const FindMovieForm = ({ className }) => {
     evt.preventDefault();
   };
 
-  const FormClass = cn({
-    FindMovieForm: true,
-    [className]: true,
-  });
+  const FormClass = cn('FindMovieForm', className);
 
   return (
     <form className={FormClass} onSubmit={handleSubmit}>

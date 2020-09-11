@@ -38,11 +38,7 @@ const MovieCardMenu = ({ movieId, onClickCloseMenu }) => {
 
 MovieCardMenu.propTypes = {
   movieId: PropTypes.number.isRequired,
-  onClickCloseMenu: PropTypes.func,
-};
-
-MovieCardMenu.defaultProps = {
-  onClickCloseMenu: () => {},
+  onClickCloseMenu: PropTypes.func.isRequired,
 };
 
 export default MovieCardMenu;

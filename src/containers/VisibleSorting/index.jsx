@@ -14,8 +14,7 @@ const VisibleSorting = () => {
     (evt) => {
       const { value } = evt.target;
       dispatch(setSortValue({ value }));
-    },
-    [currentSortValue],
+    }, [],
   );
 
   return (

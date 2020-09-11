@@ -7,11 +7,7 @@ import './style.scss';
 const Button = ({
   children, onClick, type, className, mode, disabled,
 }) => {
-  const buttonClass = cn({
-    Button: true,
-    [`Button--${mode}`]: true,
-    [className]: true,
-  });
+  const buttonClass = cn('Button', `Button--${mode}`, className);
 
   return (
     // eslint-disable-next-line react/button-has-type
@@ -24,16 +20,15 @@ const Button = ({
 };
 
 Button.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
   className: PropTypes.string,
-  mode: PropTypes.string,
+  mode: PropTypes.oneOf(['primary', 'secondary', 'transparent']),
   disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
-  children: null,
   onClick: () => {},
   type: 'button',
   className: '',

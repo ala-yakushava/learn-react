@@ -13,8 +13,7 @@ const VisibleFilter = () => {
   const handleClick = useCallback(
     (value) => () => {
       dispatch(setFilterValue({ value }));
-    },
-    [currentFilterValue],
+    }, [],
   );
 
   return (

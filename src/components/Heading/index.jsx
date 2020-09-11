@@ -5,10 +5,7 @@ import cn from 'classnames';
 import './style.scss';
 
 const Heading = ({ children, className }) => {
-  const headingClass = cn({
-    Heading: true,
-    [className]: true,
-  });
+  const headingClass = cn('Heading', className);
 
   return (
     <div className={headingClass}>
