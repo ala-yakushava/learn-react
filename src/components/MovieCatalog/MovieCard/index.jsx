@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
 
 import './style.scss';
 import MovieCardMenu from '../MovieCardMenu';
-import { setCurrentMovieId } from '../../../slices/moviesInfo';
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, onClick, onRemoveMovie }) => {
   const [visible, setVisible] = useState(false);
-  const dispatch = useDispatch();
 
   const {
     id, title, release_date: date, poster_path: poster, genres,
   } = movie;
 
-  const handleClick = () => dispatch(setCurrentMovieId({ id }));
-  const handleClickOpenMenu = () => setVisible(true);
-  const handleClickCloseMenu = () => setVisible(false);
+  const handleClickOpenMenu = (evt) => {
+    evt.stopPropagation();
+    setVisible(true);
+  };
+
+  const handleClickCloseMenu = (evt) => {
+    evt.stopPropagation();
+    setVisible(false);
+  };
 
   return (
     // eslint-disable-next-line
-    <article className="MovieCard" onClick={handleClick}>
+    <article className="MovieCard" onClick={onClick}>
       <img
         className="MovieCard_picture"
         src={poster}
@@ -34,7 +37,11 @@ const MovieCard = ({ movie }) => {
           <span>...</span>
         </button>
         {visible && (
-          <MovieCardMenu movieId={id} onClickCloseMenu={handleClickCloseMenu} />
+          <MovieCardMenu
+            movieId={id}
+            onClickCloseMenu={handleClickCloseMenu}
+            onRemoveMovie={onRemoveMovie}
+          />
         )}
       </div>
     </article>
@@ -45,14 +52,12 @@ MovieCard.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    genres: PropTypes.arrayOf(PropTypes.string),
-    release_date: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+    release_date: PropTypes.string.isRequired,
     poster_path: PropTypes.string.isRequired,
-  }),
-};
-
-MovieCard.defaultProps = {
-  movie: {},
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
+  onRemoveMovie: PropTypes.func.isRequired,
 };
 
 export default MovieCard;

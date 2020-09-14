@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import './style.scss';
 import Heading from '../../Heading';
@@ -7,9 +7,8 @@ import TextInput from '../../TextInput';
 import ModalFooter from '../ModalFooter';
 import Button from '../../Button';
 import { formField } from '../../../data';
-import { addMovie } from '../../../slices/moviesInfo';
 
-const AddMovieForm = () => {
+const AddMovieForm = ({ onSubmit }) => {
   const defaultState = {
     title: '',
     release_date: '',
@@ -18,8 +17,6 @@ const AddMovieForm = () => {
     overview: '',
     runtime: '',
   };
-
-  const dispatch = useDispatch();
 
   const [form, setValue] = useState(defaultState);
 
@@ -33,7 +30,7 @@ const AddMovieForm = () => {
     };
 
     evt.preventDefault();
-    dispatch(addMovie({ data }));
+    onSubmit(data);
   };
 
   const handleInputChange = () => (evt) => {
@@ -67,6 +64,10 @@ const AddMovieForm = () => {
       </ModalFooter>
     </form>
   );
+};
+
+AddMovieForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default AddMovieForm;

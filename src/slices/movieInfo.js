@@ -2,43 +2,29 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { getMovie } from '../api';
-
-const initialState = {
-  movie: {},
-  loading: false,
-  error: null,
-};
+import { fetchStart, fetchSuccess, fetchFailure } from './loading';
 
 const slice = createSlice({
   name: 'movieInfo',
-  initialState,
+  initialState: { movie: {} },
   reducers: {
-    getMovieStart(state) {
-      state.loading = true;
-      state.error = null;
-    },
     getMovieSuccess(state, action) {
       const { movie } = action.payload;
       state.movie = movie;
-      state.loading = false;
-      state.error = null;
-    },
-    getMovieFailure(state, action) {
-      state.loading = false;
-      state.error = action.payload;
     },
   },
 });
 
-const { getMovieStart, getMovieSuccess, getMovieFailure } = slice.actions;
+const { getMovieSuccess } = slice.actions;
 
 export const fetchMovie = (id) => async (dispatch) => {
   try {
-    dispatch(getMovieStart());
+    dispatch(fetchStart());
     const movie = await getMovie(id);
     dispatch(getMovieSuccess({ movie }));
+    dispatch(fetchSuccess());
   } catch (err) {
-    dispatch(getMovieFailure(err));
+    dispatch(fetchFailure(err));
   }
 };
 

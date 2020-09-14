@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './style.scss';
-import MovieCard from '../MovieCard';
+import VisibleMovieCard from '../../../containers/VisibleMovieCard';
 
 const MovieList = ({ movies }) => (
   <section className="MovieList">
@@ -11,7 +11,7 @@ const MovieList = ({ movies }) => (
       {' movies found'}
     </p>
     <div className="MovieList_list">
-      { movies.map((movie) => <MovieCard movie={movie} key={movie.id} />) }
+      { movies.map((movie) => <VisibleMovieCard movie={movie} key={movie.id} />) }
     </div>
   </section>
 );

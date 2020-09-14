@@ -1,12 +1,12 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import moviesInfo from './moviesInfo';
 import movieInfo from './movieInfo';
-import sorting from './sorting';
-import filtering from './filtering';
+import loading from './loading';
+import suggestion from './suggestion';
 
 export default combineReducers({
   moviesInfo,
   movieInfo,
-  sorting,
-  filtering,
+  suggestion,
+  loading,
 });

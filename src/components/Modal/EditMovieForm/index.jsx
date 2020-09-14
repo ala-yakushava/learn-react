@@ -76,13 +76,17 @@ EditMovieForm.propTypes = {
   movie: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    genres: PropTypes.arrayOf(PropTypes.string),
-    release_date: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+    release_date: PropTypes.string.isRequired,
     poster_path: PropTypes.string.isRequired,
     overview: PropTypes.string.isRequired,
     runtime: PropTypes.number.isRequired,
-  }).isRequired,
+  }),
   onSubmit: PropTypes.func.isRequired,
+};
+
+EditMovieForm.defaultProps = {
+  movie: {},
 };
 
 export default EditMovieForm;

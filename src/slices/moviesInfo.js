@@ -4,39 +4,25 @@ import { createSlice, createSelector } from '@reduxjs/toolkit';
 import {
   getMovies, deleteMovie, updateMovie, createMovie,
 } from '../api';
-import { currentFilterSelector } from './filtering';
-import { currentSortSelector } from './sorting';
+import { currentFilterSelector, currentSortSelector } from './suggestion';
+import { fetchStart, fetchSuccess, fetchFailure } from './loading';
 
 const initialState = {
   movies: [],
-  currentMovieID: 400617,
-  loading: false,
-  error: null,
+  currentMovieID: 268896,
 };
 
 const slice = createSlice({
   name: 'moviesInfo',
   initialState,
   reducers: {
-    getMoviesStart(state) {
-      state.loading = true;
-      state.error = null;
-    },
-    getMoviesFailure(state, action) {
-      state.loading = false;
-      state.error = action.payload;
-    },
     getMoviesSuccess(state, action) {
       const { movies } = action.payload;
       state.movies = movies;
-      state.loading = false;
-      state.error = null;
     },
     removeMovieSuccess(state, action) {
       const { id } = action.payload;
       state.movies = state.movies.filter((movie) => movie.id !== id);
-      state.loading = false;
-      state.error = null;
     },
     editMovieSuccess(state, action) {
       const { movie } = action.payload;
@@ -44,14 +30,10 @@ const slice = createSlice({
         const isCurrent = item.id === movie.id;
         return isCurrent ? movie : item;
       });
-      state.loading = false;
-      state.error = null;
     },
     addMovieSuccess(state, action) {
       const { movie } = action.payload;
       state.movies = [movie, ...state.movies];
-      state.loading = false;
-      state.error = null;
     },
     setCurrentMovieId(state, action) {
       const { id } = action.payload;
@@ -61,52 +43,50 @@ const slice = createSlice({
 });
 
 export const {
-  getMoviesStart,
-  getMoviesSuccess,
-  getMoviesFailure,
-  removeMovieSuccess,
-  editMovieSuccess,
-  addMovieSuccess,
-  setCurrentMovieId,
+  getMoviesSuccess, removeMovieSuccess, editMovieSuccess, addMovieSuccess, setCurrentMovieId,
 } = slice.actions;
 
 export const fetchMovies = () => async (dispatch) => {
   try {
-    dispatch(getMoviesStart());
+    dispatch(fetchStart());
     const movies = await getMovies();
     dispatch(getMoviesSuccess({ movies }));
+    dispatch(fetchSuccess());
   } catch (err) {
-    dispatch(getMoviesFailure(err));
+    dispatch(fetchFailure(err));
   }
 };
 
 export const removeMovie = (id) => async (dispatch) => {
   try {
-    dispatch(getMoviesStart());
+    dispatch(fetchStart());
     await deleteMovie(id);
     dispatch(removeMovieSuccess({ id }));
+    dispatch(fetchSuccess());
   } catch (err) {
-    dispatch(getMoviesFailure(err));
+    dispatch(fetchFailure(err));
   }
 };
 
 export const editMovie = ({ data }) => async (dispatch) => {
   try {
-    dispatch(getMoviesStart());
+    dispatch(fetchStart());
     const movie = await updateMovie(data);
     dispatch(editMovieSuccess({ movie }));
+    dispatch(fetchSuccess());
   } catch (err) {
-    dispatch(getMoviesFailure(err));
+    dispatch(fetchFailure(err));
   }
 };
 
 export const addMovie = ({ data }) => async (dispatch) => {
   try {
-    dispatch(getMoviesStart());
+    dispatch(fetchStart());
     const movie = await createMovie(data);
     dispatch(addMovieSuccess({ movie }));
+    dispatch(fetchSuccess());
   } catch (err) {
-    dispatch(getMoviesFailure(err));
+    dispatch(fetchFailure(err));
   }
 };
 

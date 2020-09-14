@@ -1,5 +1,46 @@
 import uniqueId from 'lodash/uniqueId';
 
+export const sortItems = [
+  {
+    id: 'sort-rating',
+    value: 'vote_average',
+    label: 'Rating',
+  },
+  {
+    id: 'sort-release_date',
+    value: 'release_date',
+    label: 'Release date',
+  },
+];
+
+export const filterItems = [
+  {
+    id: 'filter-all',
+    value: 'All',
+    label: 'All',
+  },
+  {
+    id: 'filter-documentary',
+    value: 'Documentary',
+    label: 'Documentary',
+  },
+  {
+    id: 'filter-comedy',
+    value: 'Comedy',
+    label: 'Comedy',
+  },
+  {
+    id: 'filter-horror',
+    value: 'Horror',
+    label: 'Horror',
+  },
+  {
+    id: 'filter-crime',
+    value: 'Crime',
+    label: 'Crime',
+  },
+];
+
 export const formField = [
   {
     id: uniqueId(),
@@ -38,5 +79,3 @@ export const formField = [
     placeholder: 'Runtime text goes here',
   },
 ];
-
-export default formField;
