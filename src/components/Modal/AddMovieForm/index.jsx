@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import './style.scss';
 import Heading from '../../Heading';
@@ -7,35 +8,34 @@ import ModalFooter from '../ModalFooter';
 import Button from '../../Button';
 import { formField } from '../../../data';
 
-const AddMovieForm = () => {
-  const [form, setValue] = useState({
+const AddMovieForm = ({ onSubmit }) => {
+  const defaultState = {
     title: '',
     release_date: '',
-    url: '',
+    poster_path: '',
     genres: '',
     overview: '',
     runtime: '',
-  });
+  };
+
+  const [form, setValue] = useState(defaultState);
+
+  const handleReset = () => setValue(defaultState);
+
+  const handleSubmit = (evt) => {
+    const data = {
+      ...form,
+      runtime: Number(form.runtime),
+      genres: form.genres.split(', '),
+    };
+
+    evt.preventDefault();
+    onSubmit(data);
+  };
 
   const handleInputChange = () => (evt) => {
     const { name, value } = evt.target;
     setValue({ ...form, [name]: value });
-  };
-
-  const handleSubmit = (evt) => {
-    console.log(form);
-    evt.preventDefault();
-  };
-
-  const handleReset = () => {
-    setValue({
-      title: '',
-      release_date: '',
-      url: '',
-      genres: '',
-      overview: '',
-      runtime: '',
-    });
   };
 
   return (
@@ -64,6 +64,10 @@ const AddMovieForm = () => {
       </ModalFooter>
     </form>
   );
+};
+
+AddMovieForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default AddMovieForm;

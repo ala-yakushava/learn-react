@@ -31,12 +31,8 @@ const Modal = ({ children, onClick }) => {
 };
 
 Modal.propTypes = {
-  children: PropTypes.node,
-  onClick: PropTypes.func,
-};
-
-Modal.defaultProps = {
-  onClick: () => {},
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Modal;

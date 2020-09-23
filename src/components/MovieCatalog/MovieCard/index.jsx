@@ -4,19 +4,26 @@ import PropTypes from 'prop-types';
 import './style.scss';
 import MovieCardMenu from '../MovieCardMenu';
 
-const MovieCard = ({ movie, genres }) => {
+const MovieCard = ({ movie, onClick, onRemoveMovie }) => {
   const [visible, setVisible] = useState(false);
 
-  const handleClickOpenMenu = () => setVisible(true);
-  const handleClickCloseMenu = () => setVisible(false);
-
   const {
-    id, title, release_date: date, poster_path: poster,
+    id, title, release_date: date, poster_path: poster, genres,
   } = movie;
-  const currentGenres = genres.filter((genre) => movie.genres.includes(genre.id));
+
+  const handleClickOpenMenu = (evt) => {
+    evt.stopPropagation();
+    setVisible(true);
+  };
+
+  const handleClickCloseMenu = (evt) => {
+    evt.stopPropagation();
+    setVisible(false);
+  };
 
   return (
-    <article className="MovieCard">
+    // eslint-disable-next-line
+    <article className="MovieCard" onClick={onClick}>
       <img
         className="MovieCard_picture"
         src={poster}
@@ -24,15 +31,17 @@ const MovieCard = ({ movie, genres }) => {
       />
       <h2 className="MovieCard_title">{ title }</h2>
       <span className="MovieCard_year">{ date }</span>
-      <p className="MovieCard_genre-list">
-        {currentGenres.map((genre) => <span className="MovieCard_genre-item" key={genre.id}>{ genre.label }</span>)}
-      </p>
+      <p className="MovieCard_genre-list">{ genres.join(', ') }</p>
       <div className="MovieCard_menu">
         <button type="button" className="MovieCard_button" onClick={handleClickOpenMenu}>
           <span>...</span>
         </button>
         {visible && (
-          <MovieCardMenu movieId={id} onClickCloseMenu={handleClickCloseMenu} />
+          <MovieCardMenu
+            movieId={id}
+            onClickCloseMenu={handleClickCloseMenu}
+            onRemoveMovie={onRemoveMovie}
+          />
         )}
       </div>
     </article>
@@ -41,24 +50,14 @@ const MovieCard = ({ movie, genres }) => {
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    genres: PropTypes.arrayOf(PropTypes.string),
-    release_date: PropTypes.number,
+    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+    release_date: PropTypes.string.isRequired,
     poster_path: PropTypes.string.isRequired,
-  }),
-  genres: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    }),
-  ),
-};
-
-MovieCard.defaultProps = {
-  movie: {},
-  genres: [],
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
+  onRemoveMovie: PropTypes.func.isRequired,
 };
 
 export default MovieCard;

@@ -9,7 +9,7 @@ const MovieDetails = ({ movie }) => {
     title, tagline, overview, runtime, vote_average: vote, release_date: date, poster_path: poster,
   } = movie;
 
-  const getReleaseYear = () => date && date.split('-')[0];
+  const releaseYear = date ? date.split('-')[0] : null;
 
   return (
     <article className="MovieDetails">
@@ -23,12 +23,8 @@ const MovieDetails = ({ movie }) => {
         </header>
         <p className="MovieDetails_lead">{ tagline }</p>
         <p className="MovieDetails_details">
-          <span>{ getReleaseYear() }</span>
-          <span>
-            { runtime }
-            { ' ' }
-            min
-          </span>
+          <span>{ releaseYear }</span>
+          <span>{ `${runtime} min` }</span>
         </p>
         <p className="MovieDetails_description">{ overview }</p>
       </div>

@@ -5,7 +5,7 @@ import Logo from '../Logo';
 import Button from '../Button';
 import FindMovieForm from './FindMovieForm';
 import Modal from '../Modal';
-import AddMovieForm from '../Modal/AddMovieForm';
+import VisibleAddMovieForm from '../../containers/VisibleAddMovieForm';
 
 const DefaultHeader = () => {
   const [visible, setVisible] = useState(false);
@@ -20,7 +20,7 @@ const DefaultHeader = () => {
       <FindMovieForm className="DefaultHeader_form" />
       {visible && (
         <Modal onClick={handleClose}>
-          <AddMovieForm />
+          <VisibleAddMovieForm />
         </Modal>
       )}
     </header>

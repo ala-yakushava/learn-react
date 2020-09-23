@@ -1,27 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
+import './style.scss';
 import ErrorBoundary from '../ErrorBoundary';
-import Filter from './Filter';
-import MovieList from './MovieList';
+import VisibleSuggestion from '../../containers/VisibleSuggestion';
+import VisibleMovieList from '../../containers/VisibleMovieList';
 
-const MovieCatalog = ({ genres, movies, options }) => (
-  <ErrorBoundary>
-    <Filter genres={genres} options={options} />
-    <MovieList movies={movies} genres={genres} />
-  </ErrorBoundary>
+const MovieCatalog = () => (
+  <div className="MovieCatalog">
+    <div className="MovieCatalog_filter">
+      <VisibleSuggestion />
+    </div>
+    <ErrorBoundary>
+      <VisibleMovieList />
+    </ErrorBoundary>
+  </div>
 );
-
-MovieCatalog.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object),
-  genres: PropTypes.arrayOf(PropTypes.object),
-  options: PropTypes.arrayOf(PropTypes.object),
-};
-
-MovieCatalog.defaultProps = {
-  movies: [],
-  genres: [],
-  options: [],
-};
 
 export default MovieCatalog;
