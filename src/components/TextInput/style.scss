@@ -1,6 +1,7 @@
 @import "../../styles/theme";
 
 .TextInput {
+  position: relative;
   display: flex;
   flex-direction: column;
 
@@ -33,5 +34,11 @@
     &::placeholder {
       color: rgb(155, 152, 152);
     }
+  }
+
+  &_error {
+    position: absolute;
+    bottom: -35px;
+    right: 0;
   }
 }

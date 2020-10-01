@@ -11,10 +11,7 @@ const MovieCard = ({ movie, onClick, onRemoveMovie }) => {
     id, title, release_date: date, poster_path: poster, genres,
   } = movie;
 
-  const handleClickOpenMenu = (evt) => {
-    evt.stopPropagation();
-    setVisible(true);
-  };
+  const handleClickOpenMenu = () => setVisible(true);
 
   const handleClickCloseMenu = (evt) => {
     evt.stopPropagation();

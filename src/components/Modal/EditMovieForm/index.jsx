@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { useFormik } from 'formik';
 
 import './style.scss';
 import Heading from '../../Heading';
@@ -7,6 +8,7 @@ import TextInput from '../../TextInput';
 import ModalFooter from '../ModalFooter';
 import Button from '../../Button';
 import { formField } from '../../../data';
+import MovieFormSchema from '../../../utils/validate';
 
 const EditMovieForm = ({ movie, onSubmit }) => {
   const defaultState = {
@@ -18,32 +20,29 @@ const EditMovieForm = ({ movie, onSubmit }) => {
     runtime: String(movie.runtime),
   };
 
-  const [form, setValue] = useState(defaultState);
+  const formik = useFormik({
+    initialValues: defaultState,
+    validationSchema: MovieFormSchema,
+    onSubmit: (values) => {
+      const data = {
+        ...values,
+        id: movie.id,
+        runtime: Number(values.runtime),
+        genres: values.genres.split(', '),
+      };
+      onSubmit(data);
+    },
+  });
 
-  const handleReset = () => setValue(defaultState);
-
-  const handleSubmit = (evt) => {
-    const data = {
-      ...form,
-      id: movie.id,
-      runtime: Number(form.runtime),
-      genres: form.genres.split(', '),
-    };
-
-    evt.preventDefault();
-    onSubmit(data);
-  };
-
-  const handleInputChange = () => (evt) => {
-    const { name, value } = evt.target;
-    setValue({ ...form, [name]: value });
-  };
+  const {
+    values, isSubmitting, dirty, isValid, errors, handleSubmit, resetForm, handleChange,
+  } = formik;
 
   return (
     <form
       className="EditMovieForm"
       onSubmit={handleSubmit}
-      onReset={handleReset}
+      onReset={resetForm}
     >
       <Heading>Edit Movie</Heading>
       <TextInput
@@ -52,21 +51,23 @@ const EditMovieForm = ({ movie, onSubmit }) => {
         label="Movie ID"
       />
       {formField.map(({
-        id, name, label, placeholder,
+        id, name, type, label, placeholder,
       }) => (
         <TextInput
           key={id}
           name={name}
+          type={type}
           label={label}
           placeholder={placeholder}
-          value={form[name]}
+          value={values[name]}
           required
-          onChange={handleInputChange(form[name])}
+          onChange={handleChange}
+          errors={errors[name]}
         />
       ))}
       <ModalFooter>
         <Button type="reset" mode="secondary">Reset</Button>
-        <Button type="submit" mode="primary">Save</Button>
+        <Button type="submit" mode="primary" disabled={isSubmitting || !dirty || !isValid}>Save</Button>
       </ModalFooter>
     </form>
   );

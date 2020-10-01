@@ -1,17 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import MovieDetails from '../../components/MovieCatalog/MovieCard';
-import { setCurrentMovieId, removeMovie } from '../../slices/moviesInfo';
+import MovieCard from '../../components/MovieCatalog/MovieCard';
+import { currentMovieIdSelector, setCurrentMovieId, removeMovie } from '../../slices/moviesInfo';
 
 const VisibleMovieCard = ({ movie }) => {
   const dispatch = useDispatch();
+  const currentMovieId = useSelector(currentMovieIdSelector);
 
-  const handleClick = () => dispatch(setCurrentMovieId({ id: movie.id }));
+  const handleClick = () => {
+    if (currentMovieId !== movie.id) {
+      dispatch(setCurrentMovieId({ id: movie.id }));
+    }
+  };
+
   const handleRemoveMovie = () => dispatch(removeMovie(movie.id));
 
-  return <MovieDetails movie={movie} onRemoveMovie={handleRemoveMovie} onClick={handleClick} />;
+  return <MovieCard movie={movie} onRemoveMovie={handleRemoveMovie} onClick={handleClick} />;
 };
 
 VisibleMovieCard.propTypes = {
