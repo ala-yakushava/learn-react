@@ -2,19 +2,16 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 import {
-  getMovies, deleteMovie, updateMovie, createMovie,
+  getMovies, searchMovies, deleteMovie, updateMovie, createMovie,
 } from '../api';
 import { currentFilterSelector, currentSortSelector } from './suggestion';
 import { fetchStart, fetchSuccess, fetchFailure } from './loading';
 
-const initialState = {
-  movies: [],
-  currentMovieID: 268896,
-};
-
 const slice = createSlice({
   name: 'moviesInfo',
-  initialState,
+  initialState: {
+    movies: [],
+  },
   reducers: {
     getMoviesSuccess(state, action) {
       const { movies } = action.payload;
@@ -35,21 +32,28 @@ const slice = createSlice({
       const { movie } = action.payload;
       state.movies = [movie, ...state.movies];
     },
-    setCurrentMovieId(state, action) {
-      const { id } = action.payload;
-      state.currentMovieID = id;
-    },
   },
 });
 
 export const {
-  getMoviesSuccess, removeMovieSuccess, editMovieSuccess, addMovieSuccess, setCurrentMovieId,
+  getMoviesSuccess, removeMovieSuccess, editMovieSuccess, addMovieSuccess,
 } = slice.actions;
 
 export const fetchMovies = () => async (dispatch) => {
   try {
     dispatch(fetchStart());
     const movies = await getMovies();
+    dispatch(getMoviesSuccess({ movies }));
+    dispatch(fetchSuccess());
+  } catch (err) {
+    dispatch(fetchFailure(err));
+  }
+};
+
+export const fetchMoviesByQuery = (value, type) => async (dispatch) => {
+  try {
+    dispatch(fetchStart());
+    const movies = await searchMovies(value, type);
     dispatch(getMoviesSuccess({ movies }));
     dispatch(fetchSuccess());
   } catch (err) {
@@ -91,7 +95,6 @@ export const addMovie = ({ data }) => async (dispatch) => {
 };
 
 export const moviesSelector = (state) => state.moviesInfo.movies;
-export const currentMovieIdSelector = (state) => state.moviesInfo.currentMovieID;
 
 export const movieByIdSelector = createSelector(
   (state) => state.moviesInfo.movies,

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useFormik } from 'formik';
+import { useHistory } from 'react-router-dom';
 
 import './style.scss';
 import Heading from '../../Heading';
@@ -9,10 +10,13 @@ import TextInput from '../../TextInput';
 import Button from '../../Button';
 
 const FindMovieForm = ({ className }) => {
+  const history = useHistory();
+
   const formik = useFormik({
     initialValues: { text: '' },
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: (values, formikActions) => {
+      formikActions.resetForm();
+      history.push(`/movies?title=${values.text}`);
     },
   });
 

@@ -15,7 +15,7 @@ const EditMovieForm = ({ movie, onSubmit }) => {
     title: movie.title,
     release_date: movie.release_date,
     poster_path: movie.poster_path,
-    genres: movie.genres.join(', '),
+    genres: movie.genres ? movie.genres.join(', ') : '',
     overview: movie.overview,
     runtime: String(movie.runtime),
   };
@@ -75,19 +75,20 @@ const EditMovieForm = ({ movie, onSubmit }) => {
 
 EditMovieForm.propTypes = {
   movie: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
-    release_date: PropTypes.string.isRequired,
-    poster_path: PropTypes.string.isRequired,
-    overview: PropTypes.string.isRequired,
-    runtime: PropTypes.number.isRequired,
+    id: PropTypes.number,
+    title: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.string),
+    release_date: PropTypes.string,
+    poster_path: PropTypes.string,
+    overview: PropTypes.string,
+    runtime: PropTypes.number,
   }),
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
 };
 
 EditMovieForm.defaultProps = {
   movie: {},
+  onSubmit: () => {},
 };
 
 export default EditMovieForm;

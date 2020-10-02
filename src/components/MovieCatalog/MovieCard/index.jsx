@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import './style.scss';
 import MovieCardMenu from '../MovieCardMenu';
 
-const MovieCard = ({ movie, onClick, onRemoveMovie }) => {
+const MovieCard = ({ movie, onRemoveMovie }) => {
   const [visible, setVisible] = useState(false);
 
   const {
@@ -12,20 +13,17 @@ const MovieCard = ({ movie, onClick, onRemoveMovie }) => {
   } = movie;
 
   const handleClickOpenMenu = () => setVisible(true);
-
-  const handleClickCloseMenu = (evt) => {
-    evt.stopPropagation();
-    setVisible(false);
-  };
+  const handleClickCloseMenu = () => setVisible(false);
 
   return (
-    // eslint-disable-next-line
-    <article className="MovieCard" onClick={onClick}>
-      <img
-        className="MovieCard_picture"
-        src={poster}
-        alt={`Poster for the movie ${title}`}
-      />
+    <article className="MovieCard">
+      <Link to={`/movies/${id}`}>
+        <img
+          className="MovieCard_picture"
+          src={poster}
+          alt={`Poster for the movie ${title}`}
+        />
+      </Link>
       <h2 className="MovieCard_title">{ title }</h2>
       <span className="MovieCard_year">{ date }</span>
       <p className="MovieCard_genre-list">{ genres.join(', ') }</p>
@@ -53,7 +51,6 @@ MovieCard.propTypes = {
     release_date: PropTypes.string.isRequired,
     poster_path: PropTypes.string.isRequired,
   }).isRequired,
-  onClick: PropTypes.func.isRequired,
   onRemoveMovie: PropTypes.func.isRequired,
 };
 

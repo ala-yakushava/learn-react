@@ -1,18 +1,24 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 import MovieList from '../../components/MovieCatalog/MovieList';
-import { fetchMovies, sortingMoviesSelector } from '../../slices/moviesInfo';
+import MovieNotFound from '../../components/MovieNotFound';
+import { fetchMoviesByQuery, sortingMoviesSelector } from '../../slices/moviesInfo';
 
 const VisibleMovieList = () => {
   const dispatch = useDispatch();
   const movies = useSelector(sortingMoviesSelector);
 
-  useEffect(() => {
-    dispatch(fetchMovies());
-  }, [dispatch]);
+  const type = 'title';
+  const useQuery = () => new URLSearchParams(useLocation().search);
+  const value = useQuery().get(type);
 
-  return <MovieList movies={movies} />;
+  useEffect(() => {
+    if (value) dispatch(fetchMoviesByQuery(value, type));
+  }, [dispatch, value]);
+
+  return movies.length ? <MovieList movies={movies} /> : <MovieNotFound />;
 };
 
 export default VisibleMovieList;

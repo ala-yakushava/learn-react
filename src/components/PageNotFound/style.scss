@@ -1,0 +1,31 @@
+@import "../../styles/theme";
+
+.PageNotFound {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+
+  &_inner {
+    padding: 150px 0 200px;
+  }
+
+  &_title {
+    text-align: center;
+  }
+
+  &_404 {
+    margin: 50px 0 80px;
+    font-size: 200px;
+    line-height: 1;
+    font-weight: 700;
+    color: $red;
+    letter-spacing: 20px;
+    text-align: center;
+  }
+
+  &_button {
+    display: block;
+    margin: 0 auto;
+  }
+}
