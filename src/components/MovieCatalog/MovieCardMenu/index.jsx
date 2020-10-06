@@ -9,15 +9,8 @@ import DeleteMovieDialog from '../../Modal/DeleteMovieDialog';
 const MovieCardMenu = ({ movieId, onClickCloseMenu, onRemoveMovie }) => {
   const [modal, setModal] = useState({ visible: false, type: null });
 
-  const handleClickOpenModal = (type) => (evt) => {
-    evt.stopPropagation();
-    setModal({ visible: true, type });
-  };
-
-  const handleClickCloseModal = (evt) => {
-    evt.stopPropagation();
-    setModal({ visible: false, type: null });
-  };
+  const handleClickOpenModal = (type) => () => setModal({ visible: true, type });
+  const handleClickCloseModal = () => setModal({ visible: false, type: null });
 
   const modalBody = {
     editMovie: <VisibleMovieForm movieId={movieId} />,

@@ -6,6 +6,10 @@ module.exports = merge(common, {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
+    historyApiFallback: true,
+  },
+  output: {
+    publicPath: '/',
   },
   module: {
     rules: [

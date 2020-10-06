@@ -8,6 +8,12 @@ export const getMovies = async () => {
   return response.data.data;
 };
 
+export const searchMovies = async (value, type) => {
+  const url = routes.moviesSearchPath(value, type);
+  const response = await axios.get(url);
+  return response.data.data;
+};
+
 export const getMovie = async (id) => {
   const url = routes.moviePath(id);
   const response = await axios.get(url);

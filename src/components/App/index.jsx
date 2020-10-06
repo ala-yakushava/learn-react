@@ -1,29 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import './style.scss';
 import Container from '../Container';
-import Header from '../Header';
-import DefaultHeader from '../DefaultHeader';
 import MovieCtalog from '../MovieCatalog';
 import Footer from '../Footer';
 
-const App = () => {
-  const [isDefaultHeader, setHeader] = useState(false);
+const App = ({ children }) => (
+  <div className="App">
+    <Container>
+      {children}
+    </Container>
+    <div className="App_space" />
+    <Container>
+      <MovieCtalog />
+    </Container>
+    <Footer />
+  </div>
+);
 
-  const handleClick = () => setHeader(true);
-
-  return (
-    <div className="App">
-      <Container>
-        {isDefaultHeader ? <DefaultHeader /> : <Header onClick={handleClick} />}
-      </Container>
-      <div className="App_space" />
-      <Container>
-        <MovieCtalog />
-      </Container>
-      <Footer />
-    </div>
-  );
+App.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default App;

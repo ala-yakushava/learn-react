@@ -1,27 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 import './style.scss';
 import Logo from '../Logo';
 import Button from '../Button';
 import MovieDetailsVisible from '../../containers/VisibleMovieDetails';
 
-const Header = ({ onClick }) => (
-  <header className="Header">
-    <Logo />
-    <Button mode="transparent" onClick={onClick}>Search</Button>
-    <div className="Header_inner">
-      <MovieDetailsVisible />
-    </div>
-  </header>
-);
+const Header = () => {
+  const history = useHistory();
 
-Header.propTypes = {
-  onClick: PropTypes.func,
-};
+  const handleClick = () => {
+    history.push('/movies');
+  };
 
-Header.defaultProps = {
-  onClick: () => {},
+  return (
+    <header className="Header">
+      <Logo />
+      <Button mode="transparent" onClick={handleClick}>Search</Button>
+      <div className="Header_inner">
+        <MovieDetailsVisible />
+      </div>
+    </header>
+  );
 };
 
 export default Header;
