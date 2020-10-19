@@ -1,12 +1,14 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
+export const initialState = {
+  filterValue: 'All',
+  sortValue: 'release_date',
+};
+
 const slice = createSlice({
   name: 'suggestion',
-  initialState: {
-    filterValue: 'All',
-    sortValue: 'release_date',
-  },
+  initialState,
   reducers: {
     setFilterValue(state, action) {
       const { value } = action.payload;

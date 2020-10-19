@@ -4,9 +4,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getMovie } from '../api';
 import { fetchStart, fetchSuccess, fetchFailure } from './loading';
 
+export const initialState = { movie: {} };
+
 const slice = createSlice({
   name: 'movieInfo',
-  initialState: { movie: {} },
+  initialState,
   reducers: {
     getMovieSuccess(state, action) {
       const { movie } = action.payload;
@@ -15,7 +17,7 @@ const slice = createSlice({
   },
 });
 
-const { getMovieSuccess } = slice.actions;
+export const { getMovieSuccess } = slice.actions;
 
 export const fetchMovie = (id) => async (dispatch) => {
   try {

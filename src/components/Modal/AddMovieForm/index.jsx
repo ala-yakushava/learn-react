@@ -7,7 +7,7 @@ import Heading from '../../Heading';
 import TextInput from '../../TextInput';
 import ModalFooter from '../ModalFooter';
 import Button from '../../Button';
-import { formField } from '../../../data';
+import { formField } from '../../../utils/data';
 import MovieFormSchema from '../../../utils/validate';
 
 const AddMovieForm = ({ onSubmit }) => {
@@ -42,6 +42,7 @@ const AddMovieForm = ({ onSubmit }) => {
       className="AddMovieForm"
       onSubmit={handleSubmit}
       onReset={resetForm}
+      data-testid="create-form"
     >
       <Heading>Add Movie</Heading>
       {formField.map(({

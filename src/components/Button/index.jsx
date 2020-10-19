@@ -24,7 +24,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
   className: PropTypes.string,
-  mode: PropTypes.oneOf(['primary', 'secondary', 'transparent']),
+  mode: PropTypes.oneOf(['default', 'primary', 'secondary', 'transparent']),
   disabled: PropTypes.bool,
 };
 

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - DeleteMovieDialog should match snapshot 1`] = `
+<div
+  className="DeleteMovieDialog"
+  data-testid="delete-dialog"
+>
+  <div
+    className="Heading"
+  >
+    Delete Movie
+  </div>
+  <p>
+    Are you sure you want to delete this movie?
+  </p>
+  <div
+    className="ModalFooter"
+  >
+    <button
+      className="Button Button--primary"
+      disabled={false}
+      onClick={[MockFunction]}
+      type="button"
+    >
+      <span
+        className="Button_text"
+      >
+        Confirm
+      </span>
+    </button>
+  </div>
+</div>
+`;

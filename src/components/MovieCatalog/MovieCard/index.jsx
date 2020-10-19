@@ -16,7 +16,7 @@ const MovieCard = ({ movie, onRemoveMovie }) => {
   const handleClickCloseMenu = () => setVisible(false);
 
   return (
-    <article className="MovieCard">
+    <article className="MovieCard" data-testid="movie-card">
       <Link to={`/movies/${id}`}>
         <img
           className="MovieCard_picture"

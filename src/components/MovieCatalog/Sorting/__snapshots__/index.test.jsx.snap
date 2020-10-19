@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - Sorting should match snapshot 1`] = `
+<div
+  className="Sorting"
+  data-testid="sorting"
+>
+  <span
+    className="Sorting_label"
+  >
+    Sort by
+  </span>
+  <select
+    className="Select"
+    onChange={[MockFunction]}
+    value="release_date"
+  >
+    <option
+      value="vote_average"
+    >
+      Rating
+    </option>
+    <option
+      value="release_date"
+    >
+      Release date
+    </option>
+  </select>
+</div>
+`;

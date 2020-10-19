@@ -10,7 +10,7 @@ const Filter = ({ filterItems, defaultValue, onClick }) => {
   };
 
   return (
-    <div className="Filter">
+    <div className="Filter" data-testid="filter">
       { filterItems.map(({ id, value, label }) => (
         <button type="button" className={cn(value)} key={id} onClick={onClick(value)}>
           { label }

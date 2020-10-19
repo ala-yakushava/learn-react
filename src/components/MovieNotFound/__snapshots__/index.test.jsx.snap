@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - MovieNotFound should match snapshot 1`] = `
+<section
+  className="MovieNotFound"
+  data-testid="movie-not-found"
+>
+  <div
+    className="Heading"
+  >
+    No Movie Found
+  </div>
+</section>
+`;

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - MovieDetails should match snapshot 1`] = `
+<article
+  className="MovieDetails"
+  data-testid="movie-details"
+>
+  <div
+    className="MovieDetails_picture"
+  >
+    <img
+      alt="Poster for the movie undefined"
+    />
+  </div>
+  <div
+    className="MovieDetails_inner"
+  >
+    <header
+      className="MovieDetails_header"
+    >
+      <div
+        className="Heading MovieDetails_title"
+      />
+      <span
+        className="MovieDetails_vote"
+      />
+    </header>
+    <p
+      className="MovieDetails_lead"
+    />
+    <p
+      className="MovieDetails_details"
+    >
+      <span />
+      <span>
+        undefined min
+      </span>
+    </p>
+    <p
+      className="MovieDetails_description"
+    />
+  </div>
+</article>
+`;

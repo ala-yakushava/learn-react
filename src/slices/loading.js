@@ -1,12 +1,14 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
+export const initialState = {
+  loading: false,
+  error: null,
+};
+
 const slice = createSlice({
   name: 'loading',
-  initialState: {
-    loading: false,
-    error: null,
-  },
+  initialState,
   reducers: {
     fetchStart(state) {
       state.loading = true;

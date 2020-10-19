@@ -18,8 +18,8 @@ const MovieCardMenu = ({ movieId, onClickCloseMenu, onRemoveMovie }) => {
   };
 
   return (
-    <div className="MovieCardMenu">
-      <button type="button" className="MovieCardMenu_close" onClick={onClickCloseMenu}>X</button>
+    <div className="MovieCardMenu" data-testid="card-menu">
+      <button type="button" className="MovieCardMenu_close" onClick={onClickCloseMenu}>Х</button>
       <button type="button" className="MovieCardMenu_button" onClick={handleClickOpenModal('deleteMovie')}>Delete</button>
       <button type="button" className="MovieCardMenu_button" onClick={handleClickOpenModal('editMovie')}>Edit</button>
       {modal.visible && (

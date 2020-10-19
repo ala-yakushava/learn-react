@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - App should match snapshot 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="Container"
+  >
+    <div>
+      Content
+    </div>
+  </div>
+  <div
+    className="App_space"
+  />
+  <div
+    className="Container"
+  >
+    <div
+      className="MovieCatalog"
+      data-testid="catalog"
+    >
+      <div
+        className="MovieCatalog_filter"
+      >
+        <div
+          className="Filter"
+          data-testid="filter"
+        >
+          <button
+            className="Filter_item active"
+            onClick={[Function]}
+            type="button"
+          >
+            All
+          </button>
+          <button
+            className="Filter_item"
+            onClick={[Function]}
+            type="button"
+          >
+            Documentary
+          </button>
+          <button
+            className="Filter_item"
+            onClick={[Function]}
+            type="button"
+          >
+            Comedy
+          </button>
+          <button
+            className="Filter_item"
+            onClick={[Function]}
+            type="button"
+          >
+            Horror
+          </button>
+          <button
+            className="Filter_item"
+            onClick={[Function]}
+            type="button"
+          >
+            Crime
+          </button>
+        </div>
+        <div
+          className="Sorting"
+          data-testid="sorting"
+        >
+          <span
+            className="Sorting_label"
+          >
+            Sort by
+          </span>
+          <select
+            className="Select"
+            onChange={[Function]}
+            value="release_date"
+          >
+            <option
+              value="vote_average"
+            >
+              Rating
+            </option>
+            <option
+              value="release_date"
+            >
+              Release date
+            </option>
+          </select>
+        </div>
+      </div>
+      <section
+        className="MovieNotFound"
+        data-testid="movie-not-found"
+      >
+        <div
+          className="Heading"
+        >
+          No Movie Found
+        </div>
+      </section>
+    </div>
+  </div>
+  <footer
+    className="Footer"
+  >
+    <p
+      className="Logo"
+    >
+      <b>
+        netflix
+      </b>
+      roulette
+    </p>
+  </footer>
+</div>
+`;

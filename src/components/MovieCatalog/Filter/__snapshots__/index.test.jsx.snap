@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - Filter should match snapshot 1`] = `
+<div
+  className="Filter"
+  data-testid="filter"
+>
+  <button
+    className="Filter_item active"
+    type="button"
+  >
+    All
+  </button>
+  <button
+    className="Filter_item"
+    type="button"
+  >
+    Documentary
+  </button>
+  <button
+    className="Filter_item"
+    type="button"
+  >
+    Comedy
+  </button>
+  <button
+    className="Filter_item"
+    type="button"
+  >
+    Horror
+  </button>
+  <button
+    className="Filter_item"
+    type="button"
+  >
+    Crime
+  </button>
+</div>
+`;

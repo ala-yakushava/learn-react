@@ -5,7 +5,7 @@ import './style.scss';
 import Select from '../../Select';
 
 const Sorting = ({ sortingItems, defaultValue, onChange }) => (
-  <div className="Sorting">
+  <div className="Sorting" data-testid="sorting">
     <span className="Sorting_label">Sort by</span>
     <Select options={sortingItems} value={defaultValue} onChange={onChange} />
   </div>

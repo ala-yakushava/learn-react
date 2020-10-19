@@ -6,7 +6,7 @@ import VisibleSuggestion from '../../containers/VisibleSuggestion';
 import VisibleMovieList from '../../containers/VisibleMovieList';
 
 const MovieCatalog = () => (
-  <div className="MovieCatalog">
+  <div className="MovieCatalog" data-testid="catalog">
     <div className="MovieCatalog_filter">
       <VisibleSuggestion />
     </div>

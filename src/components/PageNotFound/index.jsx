@@ -8,7 +8,7 @@ import Button from '../Button';
 import Footer from '../Footer';
 
 const PageNotFound = () => (
-  <div className="PageNotFound">
+  <div className="PageNotFound" data-testid="page-not-found">
     <Container>
       <Logo />
       <div className="PageNotFound_inner">
