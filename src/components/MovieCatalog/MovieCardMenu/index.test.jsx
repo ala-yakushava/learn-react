@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
@@ -7,24 +6,22 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
 import MovieCardMenu from './index';
-import { id, movie } from '../../../utils/mock-data';
+import { id } from '../../../utils/mock-data';
 
-jest.mock('react-redux');
+jest.mock('../../../containers/VisibleEditMovieForm', () => () => (
+  <div data-testid="VisibleMovieForm" />
+));
+
+jest.mock('../../Modal/DeleteMovieDialog', () => () => (
+  <div data-testid="DeleteMovieDialog" />
+));
 
 describe('Components - MovieCardMenu', () => {
   const handleClose = jest.fn();
   const handleRemove = jest.fn();
-  const dispatch = jest.fn();
-
-  const state = {
-    movieInfo: { movie },
-    loading: { loading: false },
-  };
 
   beforeAll(() => {
     ReactDOM.createPortal = jest.fn((element) => element);
-    useSelector.mockImplementation((cb) => cb(state));
-    useDispatch.mockReturnValue(dispatch);
 
     const modalRoot = document.createElement('div');
     modalRoot.setAttribute('id', 'modal-root');
@@ -34,7 +31,6 @@ describe('Components - MovieCardMenu', () => {
 
   afterAll(() => {
     ReactDOM.createPortal.mockClear();
-    useDispatch.mockClear();
   });
 
   test('should match snapshot', () => {
@@ -46,7 +42,7 @@ describe('Components - MovieCardMenu', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('should open modal with EditMovieForm', () => {
+  test('should open modal with VisibleMovieForm', () => {
     const { getByTestId, getByRole } = render(
       <MovieCardMenu movieId={id} onClickCloseMenu={handleClose} onRemoveMovie={handleRemove} />,
     );
@@ -56,7 +52,7 @@ describe('Components - MovieCardMenu', () => {
     userEvent.click(button, leftClick);
 
     const modal = getByTestId('modal');
-    const dialog = getByTestId('edit-form');
+    const dialog = getByTestId('VisibleMovieForm');
     expect(modal).toContainElement(dialog);
 
     const closeModal = getByRole('button', { name: /x/i });
@@ -74,7 +70,7 @@ describe('Components - MovieCardMenu', () => {
     userEvent.click(button, leftClick);
 
     const modal = getByTestId('modal');
-    const dialog = getByTestId('delete-dialog');
+    const dialog = getByTestId('DeleteMovieDialog');
     expect(modal).toContainElement(dialog);
 
     const closeModal = getByRole('button', { name: /x/i });

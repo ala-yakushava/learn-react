@@ -1,5 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
@@ -8,14 +7,13 @@ import '@testing-library/jest-dom';
 
 import DefaultHeader from './index';
 
-jest.mock('react-redux');
+jest.mock('../../containers/VisibleAddMovieForm', () => () => (
+  <div data-testid="VisibleAddMovieForm" />
+));
 
 describe('Components - DefaultHeader', () => {
-  const dispatch = jest.fn();
-
   beforeAll(() => {
     ReactDOM.createPortal = jest.fn((element) => element);
-    useDispatch.mockReturnValue(dispatch);
 
     const modalRoot = document.createElement('div');
     modalRoot.setAttribute('id', 'modal-root');
@@ -25,7 +23,6 @@ describe('Components - DefaultHeader', () => {
 
   afterAll(() => {
     ReactDOM.createPortal.mockClear();
-    useDispatch.mockClear();
   });
 
   test('should match snapshot', () => {
@@ -45,7 +42,7 @@ describe('Components - DefaultHeader', () => {
     userEvent.click(button, leftClick);
 
     const modal = getByTestId('modal');
-    const form = getByTestId('create-form');
+    const form = getByTestId('VisibleAddMovieForm');
     expect(modal).toContainElement(form);
 
     const closeModal = getByRole('button', { name: /X/i });

@@ -1,34 +1,29 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 import Header from './index';
-import { id, movie } from '../../utils/mock-data';
 
-jest.mock('react-redux');
+jest.mock('../../containers/VisibleMovieDetails', () => () => (
+  <div data-testid="VisibleMovieDetails" />
+));
 
 describe('Components - Header', () => {
-  const dispatch = jest.fn();
-
-  beforeAll(() => {
-    useSelector.mockImplementation((cb) => cb({ movieInfo: { movie } }));
-    useDispatch.mockReturnValue(dispatch);
-  });
-
-  afterAll(() => {
-    useSelector.mockClear();
-    useDispatch.mockClear();
-  });
-
   test('should match snapshot', () => {
     const tree = renderer
       .create(
-        <MemoryRouter initialEntries={[`/movies/${id}`]}>
-          <Header />
-        </MemoryRouter>,
+        <Header />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  test('should be render VisibleMovieDetails', () => {
+    const { queryByTestId } = render(
+      <Header />,
+    );
+
+    expect(queryByTestId('VisibleMovieDetails')).toBeInTheDocument();
   });
 });
