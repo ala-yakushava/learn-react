@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - MovieDetails should match snapshot 1`] = `
+<article
+  className="MovieDetails"
+  data-testid="movie-details"
+>
+  <div
+    className="MovieDetails_picture"
+  >
+    <img
+      alt="Poster for the movie Thor: Ragnarok"
+      src="https://image.tmdb.org/t/p/w500/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg"
+    />
+  </div>
+  <div
+    className="MovieDetails_inner"
+  >
+    <header
+      className="MovieDetails_header"
+    >
+      <div
+        className="Heading MovieDetails_title"
+      >
+        Thor: Ragnarok
+      </div>
+      <span
+        className="MovieDetails_vote"
+      >
+        7.4
+      </span>
+    </header>
+    <p
+      className="MovieDetails_lead"
+    >
+      No Hammer. No Problem.
+    </p>
+    <p
+      className="MovieDetails_details"
+    >
+      <span>
+        2017
+      </span>
+      <span>
+        130 min
+      </span>
+    </p>
+    <p
+      className="MovieDetails_description"
+    >
+      Thor is imprisoned on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the prophecy of destruction to his homeworld and the end of Asgardian civilization, at the hands of an all-powerful new threat, the ruthless Hela.
+    </p>
+  </div>
+</article>
+`;

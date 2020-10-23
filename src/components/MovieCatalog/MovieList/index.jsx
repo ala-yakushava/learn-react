@@ -10,7 +10,7 @@ const MovieList = ({ movies }) => (
       { movies.length }
       {' movies found'}
     </p>
-    <div className="MovieList_list">
+    <div className="MovieList_list" data-testid="movie-list">
       { movies.map((movie) => <VisibleMovieCard movie={movie} key={movie.id} />) }
     </div>
   </section>

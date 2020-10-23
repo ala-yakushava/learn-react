@@ -12,7 +12,7 @@ const MovieDetails = ({ movie }) => {
   const releaseYear = date ? date.split('-')[0] : null;
 
   return (
-    <article className="MovieDetails">
+    <article className="MovieDetails" data-testid="movie-details">
       <div className="MovieDetails_picture">
         <img src={poster} alt={`Poster for the movie ${title}`} />
       </div>

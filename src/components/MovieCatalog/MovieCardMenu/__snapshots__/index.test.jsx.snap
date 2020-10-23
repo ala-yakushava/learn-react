@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - MovieCardMenu should match snapshot 1`] = `
+<div
+  className="MovieCardMenu"
+  data-testid="card-menu"
+>
+  <button
+    className="MovieCardMenu_close"
+    onClick={[MockFunction]}
+    type="button"
+  >
+    Х
+  </button>
+  <button
+    className="MovieCardMenu_button"
+    onClick={[Function]}
+    type="button"
+  >
+    Delete
+  </button>
+  <button
+    className="MovieCardMenu_button"
+    onClick={[Function]}
+    type="button"
+  >
+    Edit
+  </button>
+</div>
+`;

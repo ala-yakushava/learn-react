@@ -7,11 +7,11 @@ import {
 import { currentFilterSelector, currentSortSelector } from './suggestion';
 import { fetchStart, fetchSuccess, fetchFailure } from './loading';
 
+export const initialState = { movies: [] };
+
 const slice = createSlice({
   name: 'moviesInfo',
-  initialState: {
-    movies: [],
-  },
+  initialState,
   reducers: {
     getMoviesSuccess(state, action) {
       const { movies } = action.payload;

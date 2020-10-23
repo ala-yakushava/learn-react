@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - MovieCard should match snapshot 1`] = `
+<article
+  className="MovieCard"
+  data-testid="movie-card"
+>
+  <a
+    href="/movies/284053"
+    onClick={[Function]}
+  >
+    <img
+      alt="Poster for the movie Thor: Ragnarok"
+      className="MovieCard_picture"
+      src="https://image.tmdb.org/t/p/w500/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg"
+    />
+  </a>
+  <h2
+    className="MovieCard_title"
+  >
+    Thor: Ragnarok
+  </h2>
+  <span
+    className="MovieCard_year"
+  >
+    2017-10-25
+  </span>
+  <p
+    className="MovieCard_genre-list"
+  >
+    Action, Adventure, Fantasy
+  </p>
+  <div
+    className="MovieCard_menu"
+  >
+    <button
+      className="MovieCard_button"
+      onClick={[Function]}
+      type="button"
+    >
+      <span>
+        ...
+      </span>
+    </button>
+  </div>
+</article>
+`;

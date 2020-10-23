@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - EditMovieForm should match snapshot 1`] = `
+<form
+  className="EditMovieForm"
+  data-testid="edit-form"
+  onReset={[Function]}
+  onSubmit={[Function]}
+>
+  <div
+    className="Heading"
+  >
+    Edit Movie
+  </div>
+  <div
+    className="TextInput"
+  >
+    <label
+      className="TextInput_label"
+      htmlFor=""
+    >
+      Movie ID
+    </label>
+    <input
+      className="TextInput_field"
+      id=""
+      name=""
+      onChange={[Function]}
+      placeholder={null}
+      readOnly={true}
+      required={false}
+      type="text"
+      value="undefined"
+    />
+  </div>
+  <div
+    className="TextInput"
+  >
+    <label
+      className="TextInput_label"
+      htmlFor="title"
+    >
+      Title
+    </label>
+    <input
+      className="TextInput_field"
+      id="title"
+      name="title"
+      onChange={[Function]}
+      placeholder="Title here"
+      readOnly={false}
+      required={true}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="TextInput"
+  >
+    <label
+      className="TextInput_label"
+      htmlFor="release_date"
+    >
+      Release date
+    </label>
+    <input
+      className="TextInput_field"
+      id="release_date"
+      name="release_date"
+      onChange={[Function]}
+      placeholder="Select date"
+      readOnly={false}
+      required={true}
+      type="date"
+      value=""
+    />
+  </div>
+  <div
+    className="TextInput"
+  >
+    <label
+      className="TextInput_label"
+      htmlFor="poster_path"
+    >
+      Movie URL
+    </label>
+    <input
+      className="TextInput_field"
+      id="poster_path"
+      name="poster_path"
+      onChange={[Function]}
+      placeholder="Movie URL here"
+      readOnly={false}
+      required={true}
+      type="url"
+      value=""
+    />
+  </div>
+  <div
+    className="TextInput"
+  >
+    <label
+      className="TextInput_label"
+      htmlFor="genres"
+    >
+      Genre
+    </label>
+    <input
+      className="TextInput_field"
+      id="genres"
+      name="genres"
+      onChange={[Function]}
+      placeholder="Select genre"
+      readOnly={false}
+      required={true}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="TextInput"
+  >
+    <label
+      className="TextInput_label"
+      htmlFor="overview"
+    >
+      Overview
+    </label>
+    <input
+      className="TextInput_field"
+      id="overview"
+      name="overview"
+      onChange={[Function]}
+      placeholder="Overview text goes here"
+      readOnly={false}
+      required={true}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="TextInput"
+  >
+    <label
+      className="TextInput_label"
+      htmlFor="runtime"
+    >
+      Runtime
+    </label>
+    <input
+      className="TextInput_field"
+      id="runtime"
+      name="runtime"
+      onChange={[Function]}
+      placeholder="Runtime text goes here"
+      readOnly={false}
+      required={true}
+      type="text"
+      value="undefined"
+    />
+  </div>
+  <div
+    className="ModalFooter"
+  >
+    <button
+      className="Button Button--secondary"
+      disabled={false}
+      onClick={[Function]}
+      type="reset"
+    >
+      <span
+        className="Button_text"
+      >
+        Reset
+      </span>
+    </button>
+    <button
+      className="Button Button--primary"
+      disabled={true}
+      onClick={[Function]}
+      type="submit"
+    >
+      <span
+        className="Button_text"
+      >
+        Save
+      </span>
+    </button>
+  </div>
+</form>
+`;

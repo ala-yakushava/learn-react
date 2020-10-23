@@ -14,7 +14,7 @@ const DefaultHeader = () => {
   const handleClose = () => setVisible(false);
 
   return (
-    <header className="DefaultHeader">
+    <header className="DefaultHeader" data-testid="default-header">
       <Logo />
       <Button mode="transparent" onClick={handleClick}>Add movie</Button>
       <FindMovieForm className="DefaultHeader_form" />

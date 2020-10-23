@@ -6,7 +6,7 @@ import Sorting from '../../components/MovieCatalog/Sorting';
 import {
   setFilterValue, setSortValue, currentFilterSelector, currentSortSelector,
 } from '../../slices/suggestion';
-import { filterItems, sortItems } from '../../data';
+import { filterItems, sortItems } from '../../utils/data';
 
 const VisibleSuggestion = () => {
   const dispatch = useDispatch();

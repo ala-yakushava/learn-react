@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - App should match snapshot 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="Container"
+  >
+    <div>
+      Content
+    </div>
+  </div>
+  <div
+    className="App_space"
+  />
+  <div
+    className="Container"
+  >
+    <div
+      data-testid="MovieCatalog"
+    />
+  </div>
+  <footer
+    className="Footer"
+  >
+    <p
+      className="Logo"
+    >
+      <b>
+        netflix
+      </b>
+      roulette
+    </p>
+  </footer>
+</div>
+`;

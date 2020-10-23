@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - PageNotFound should match snapshot 1`] = `
+<div
+  className="PageNotFound"
+  data-testid="page-not-found"
+>
+  <div
+    className="Container"
+  >
+    <p
+      className="Logo"
+    >
+      <b>
+        netflix
+      </b>
+      roulette
+    </p>
+    <div
+      className="PageNotFound_inner"
+    >
+      <div
+        className="Heading PageNotFound_title"
+      >
+        Page Not Found
+      </div>
+      <p
+        className="PageNotFound_404"
+      >
+        404
+      </p>
+      <button
+        className="Button Button--secondary PageNotFound_button"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="Button_text"
+        >
+          Go back to home
+        </span>
+      </button>
+    </div>
+  </div>
+  <footer
+    className="Footer"
+  >
+    <p
+      className="Logo"
+    >
+      <b>
+        netflix
+      </b>
+      roulette
+    </p>
+  </footer>
+</div>
+`;

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - TextInput should match snapshot 1`] = `
+<div
+  className="TextInput"
+>
+  <input
+    className="TextInput_field"
+    id=""
+    name=""
+    onChange={[Function]}
+    placeholder={null}
+    readOnly={false}
+    required={false}
+    type="text"
+    value=""
+  />
+</div>
+`;

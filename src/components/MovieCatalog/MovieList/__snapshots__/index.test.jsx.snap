@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - MovieList should match snapshot 1`] = `
+<section
+  className="MovieList"
+>
+  <p
+    className="MovieList_lead"
+  >
+    0
+     movies found
+  </p>
+  <div
+    className="MovieList_list"
+    data-testid="movie-list"
+  />
+</section>
+`;

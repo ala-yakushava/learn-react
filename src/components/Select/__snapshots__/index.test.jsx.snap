@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - Select should match snapshot 1`] = `
+<select
+  className="Select"
+  onChange={[Function]}
+  value="release_date"
+>
+  <option
+    value="vote_average"
+  >
+    Rating
+  </option>
+  <option
+    value="release_date"
+  >
+    Release date
+  </option>
+</select>
+`;

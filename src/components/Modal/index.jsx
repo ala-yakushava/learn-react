@@ -20,7 +20,7 @@ const Modal = ({ children, onClick }) => {
   });
 
   return ReactDOM.createPortal(
-    <div className="Modal">
+    <div className="Modal" data-testid="modal">
       <div className="Modal_wrapper">
         <button type="button" className="Modal_close" onClick={onClick}>X</button>
         {children}

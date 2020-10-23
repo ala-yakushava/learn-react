@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - DefaultHeader should match snapshot 1`] = `
+<header
+  className="DefaultHeader"
+  data-testid="default-header"
+>
+  <p
+    className="Logo"
+  >
+    <b>
+      netflix
+    </b>
+    roulette
+  </p>
+  <button
+    className="Button Button--transparent"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="Button_text"
+    >
+      Add movie
+    </span>
+  </button>
+  <form
+    className="FindMovieForm DefaultHeader_form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="Heading FindMovieForm_title"
+    >
+      Find your movie
+    </div>
+    <div
+      className="TextInput"
+    >
+      <input
+        className="TextInput_field"
+        id="text"
+        name="text"
+        onChange={[Function]}
+        placeholder="What do you want to watch?"
+        readOnly={false}
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      className="Button Button--primary"
+      disabled={true}
+      onClick={[Function]}
+      type="submit"
+    >
+      <span
+        className="Button_text"
+      >
+        Search
+      </span>
+    </button>
+  </form>
+</header>
+`;

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - ErrorBoundary should match snapshot with error 1`] = `
+<div
+  className="ErrorBoundary"
+>
+  <h2>
+    Something went wrong.
+  </h2>
+  <details
+    style={
+      Object {
+        "whiteSpace": "pre-wrap",
+      }
+    }
+  >
+    Error: Objects are not valid as a React child (found: Error: Something went broke!). If you meant to render a collection of children, use an array instead.
+    in Child
+    in ErrorBoundary
+    <br />
+    
+    in Child
+    in ErrorBoundary
+  </details>
+</div>
+`;
+
+exports[`Components - ErrorBoundary should match snapshot without error 1`] = `
+<div>
+  Content
+</div>
+`;

@@ -7,7 +7,7 @@ import ModalFooter from '../ModalFooter';
 import Button from '../../Button';
 
 const DeleteMovieDialog = ({ onClick }) => (
-  <div className="DeleteMovieDialog">
+  <div className="DeleteMovieDialog" data-testid="delete-dialog">
     <Heading>Delete Movie</Heading>
     <p>Are you sure you want to delete this movie?</p>
     <ModalFooter>

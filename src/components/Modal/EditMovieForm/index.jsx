@@ -7,7 +7,7 @@ import Heading from '../../Heading';
 import TextInput from '../../TextInput';
 import ModalFooter from '../ModalFooter';
 import Button from '../../Button';
-import { formField } from '../../../data';
+import { formField } from '../../../utils/data';
 import MovieFormSchema from '../../../utils/validate';
 
 const EditMovieForm = ({ movie, onSubmit }) => {
@@ -43,6 +43,7 @@ const EditMovieForm = ({ movie, onSubmit }) => {
       className="EditMovieForm"
       onSubmit={handleSubmit}
       onReset={resetForm}
+      data-testid="edit-form"
     >
       <Heading>Edit Movie</Heading>
       <TextInput
