@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter, Router, Route } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
 import RouterComponent from '../src/routes';
@@ -31,7 +30,7 @@ describe('React Router', () => {
     useDispatch.mockClear();
   });
 
-  it('should render App with DefaultHeader', () => {
+  it('should render Main with DefaultHeader', () => {
     const history = createMemoryHistory();
     history.push('/movies');
 
@@ -42,38 +41,6 @@ describe('React Router', () => {
     );
 
     const section = getByTestId('default-header');
-    expect(section).toBeInTheDocument();
-  });
-
-  it('should redirect and render App with DefaultHeader', () => {
-    const history = createMemoryHistory();
-    history.push('/');
-
-    const { getByTestId } = render(
-      <Router history={history}>
-        <RouterComponent />
-      </Router>,
-    );
-
-    const section = getByTestId('default-header');
-    expect(section).toBeInTheDocument();
-  });
-
-  it('should render MovieDetails', () => {
-    const history = createMemoryHistory();
-    history.push('/movies');
-
-    const { getByTestId, getByRole } = render(
-      <Router history={history}>
-        <RouterComponent />
-      </Router>,
-    );
-
-    const leftClick = { link: 0 };
-    const link = getByRole('link', { name: /Ready Player One/i });
-    userEvent.click(link, leftClick);
-
-    const section = getByTestId('movie-details');
     expect(section).toBeInTheDocument();
   });
 

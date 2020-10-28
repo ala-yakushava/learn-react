@@ -3,19 +3,19 @@ import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import App from './index';
+import Main from './index';
 
 jest.mock('../MovieCatalog', () => () => (
   <div data-testid="MovieCatalog" />
 ));
 
-describe('Components - App', () => {
+describe('Components - Main', () => {
   test('should match snapshot', () => {
     const tree = renderer
       .create(
-        <App>
+        <Main>
           <div>Content</div>
-        </App>,
+        </Main>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -23,9 +23,9 @@ describe('Components - App', () => {
 
   test('should be render MovieCatalog', () => {
     const { queryByTestId } = render(
-      <App>
+      <Main>
         <div>Content</div>
-      </App>,
+      </Main>,
     );
 
     expect(queryByTestId('MovieCatalog')).toBeInTheDocument();

@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components - App should match snapshot 1`] = `
+exports[`Components - Main should match snapshot 1`] = `
 <div
-  className="App"
+  className="Main"
 >
   <div
     className="Container"
@@ -12,7 +12,7 @@ exports[`Components - App should match snapshot 1`] = `
     </div>
   </div>
   <div
-    className="App_space"
+    className="Main_space"
   />
   <div
     className="Container"
