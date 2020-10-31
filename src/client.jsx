@@ -7,6 +7,8 @@ import App from './App';
 
 const store = configureStore(window.PRELOADED_STATE);
 
+delete window.PRELOADED_STATE;
+
 const app = (
   <App
     Router={BrowserRouter}

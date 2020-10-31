@@ -1,10 +1,12 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import loadable from '@loadable/component';
 
-import Main from './components/Main';
 import Header from './components/Header';
 import DefaultHeader from './components/DefaultHeader';
-import PageNotFound from './components/PageNotFound';
+
+const Main = loadable(() => import('./components/Main'));
+const PageNotFound = loadable(() => import('./components/PageNotFound'));
 
 const RouterComponent = () => (
   <Switch>
