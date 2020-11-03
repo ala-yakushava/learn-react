@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import './style.scss';
 import Logo from '../Logo';
 import Button from '../Button';
-import MovieDetailsVisible from '../../containers/VisibleMovieDetails';
+import VisibleMovieDetails from '../../containers/VisibleMovieDetails';
 
 const Header = () => {
   const history = useHistory();
@@ -18,7 +18,7 @@ const Header = () => {
       <Logo />
       <Button mode="transparent" onClick={handleClick}>Search</Button>
       <div className="Header_inner">
-        <MovieDetailsVisible />
+        <VisibleMovieDetails />
       </div>
     </header>
   );

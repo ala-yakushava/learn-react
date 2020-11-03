@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './style.scss';
 import MovieCardMenu from '../MovieCardMenu';
@@ -17,13 +17,13 @@ const MovieCard = ({ movie, onRemoveMovie }) => {
 
   return (
     <article className="MovieCard" data-testid="movie-card">
-      <Link to={`/movies/${id}`}>
+      <NavLink to={`/movies/${id}`}>
         <img
           className="MovieCard_picture"
           src={poster}
           alt={`Poster for the movie ${title}`}
         />
-      </Link>
+      </NavLink>
       <h2 className="MovieCard_title">{ title }</h2>
       <span className="MovieCard_year">{ date }</span>
       <p className="MovieCard_genre-list">{ genres.join(', ') }</p>

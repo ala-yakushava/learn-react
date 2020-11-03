@@ -6,6 +6,7 @@ exports[`Components - MovieCard should match snapshot 1`] = `
   data-testid="movie-card"
 >
   <a
+    aria-current={null}
     href="/movies/284053"
     onClick={[Function]}
   >

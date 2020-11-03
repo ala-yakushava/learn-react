@@ -6,12 +6,12 @@ import Container from '../Container';
 import MovieCtalog from '../MovieCatalog';
 import Footer from '../Footer';
 
-const App = ({ children }) => (
-  <div className="App">
+const Main = ({ children }) => (
+  <div className="Main">
     <Container>
       {children}
     </Container>
-    <div className="App_space" />
+    <div className="Main_space" />
     <Container>
       <MovieCtalog />
     </Container>
@@ -19,8 +19,8 @@ const App = ({ children }) => (
   </div>
 );
 
-App.propTypes = {
+Main.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default App;
+export default Main;
